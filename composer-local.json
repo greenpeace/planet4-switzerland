@@ -3,9 +3,7 @@
 	"description": "Greenpeace P4 Switzerland",
 	"license": "MIT",
 	"require": {
-		"greenpeace/planet4-child-theme" : "dev-develop",
-		"greenpeace/planet4-master-theme" : "dev-develop",
-		"greenpeace/planet4-plugin-blocks" : "dev-develop"
+		"greenpeace/planet4-child-theme" : "0.2.10"
 	},
 	"scripts": {
 		"site:custom" : []
