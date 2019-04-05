@@ -4,8 +4,8 @@
 	"license": "MIT",
 	"require": {
 		"greenpeace/planet4-child-theme-switzerland" : "0.*",
-		"wpackagist-plugin/wp-stateless": "2.1.7"
-		"greenpeace/planet4-gpch-gutenberg-blocks": "0.*"
+		"wpackagist-plugin/wp-stateless": "2.1.7",
+		"greenpeace/planet4-gpch-gutenberg-blocks": "dev-master"
 	},
 	"scripts": {
 		"core:language": "wp language core install de_DE;",
