@@ -23,6 +23,7 @@
 			"@install:plugin-wpml-management",
 			"@install:plugin-wpml-stringtranslate",
 			"@install:plugin-wpimport"
+			"@install:plugin-acf"
 		]
 	}
 }
