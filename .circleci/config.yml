@@ -9,7 +9,8 @@ job_environments:
   common_environment: &common_environment
     APP_HOSTPATH: 
     CONTAINER_PREFIX: planet4-switzerland
-    WP_DB_NAME_PREFIX: planet4-switzerl_wordpress
+    CODECEPTION_SELENIUM_HOST: selenium
+    CODECEPTION_SELENIUM_PORT: 4444
   develop_environment: &develop_environment
     APP_ENVIRONMENT: development
     APP_HOSTNAME: develop.greenpeace.ch
