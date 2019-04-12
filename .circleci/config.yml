@@ -43,7 +43,6 @@ job_environments:
     NEWRELIC_APPNAME: P4 Switzerland Production
     WP_DB_NAME: planet4-switzerl_wordpress_master
     WP_STATELESS_BUCKET: planet4-switzerland-stateless
-
 job_definitions:
   build_steps: &build_steps
     working_directory: ~/
@@ -76,6 +75,29 @@ job_definitions:
           paths:
             - var
             - src
+
+  test_steps: &test_steps
+    working_directory: ~/project
+    docker:
+      - image: gcr.io/planet-4-151612/p4-codeception:develop
+      - name: selenium
+        image: selenium/standalone-chrome-debug:3
+    steps:
+      - checkout
+      - run: dockerize -wait tcp://selenium:4444
+      - run: codeceptionify.sh .
+      - run: codecept run --xml=junit.xml --html
+      - run:
+          name: Copy test artifacts
+          when: always
+          command: |
+            mkdir -p /tmp/artifacts
+            cp -r codeception/_output/. /tmp/artifacts
+      - store_test_results:
+          path: /tmp/artifacts
+      - store_artifacts:
+          path: /tmp/artifacts
+
   prepare_release: &prepare_release
     working_directory: /tmp/workspace/src
     steps:
@@ -132,6 +154,7 @@ jobs:
       <<: *common_environment
       <<: *develop_environment
     <<: *build_steps
+
   prepare-release:
     <<: *defaults
     <<: *prepare_release
@@ -153,6 +176,7 @@ jobs:
   finish-release:
     <<: *defaults
     <<: *finish_release
+
   build-tag:
     <<: *defaults
     environment:
@@ -167,18 +191,34 @@ jobs:
       <<: *production_environment
     <<: *notify_hold
 
+  test-develop:
+    <<: *defaults
+    environment:
+      <<: *common_environment
+      <<: *develop_environment
+    <<: *test_steps
+
+  test-release:
+    <<: *defaults
+    environment:
+      <<: *common_environment
+      <<: *release_environment
+    <<: *test_steps
+
   deploy-develop:
     <<: *defaults
     environment:
       <<: *common_environment
       <<: *develop_environment
     <<: *deploy_steps
+
   deploy-release:
     <<: *defaults
     environment:
       <<: *common_environment
       <<: *release_environment
     <<: *deploy_steps
+
   deploy-tag:
     <<: *defaults
     environment:
@@ -186,11 +226,12 @@ jobs:
       <<: *production_environment
     <<: *deploy_steps
 
+
   create-sync-sql:
     <<: *defaults
     environment:
-      <<: *common_environment
-      <<: *production_environment
+       <<: *common_environment
+       <<: *production_environment
     working_directory: /tmp/workspace/src
     steps:
       - checkout
@@ -208,8 +249,8 @@ jobs:
   sync-sql-to-release:
     <<: *defaults
     environment:
-      <<: *common_environment
-      <<: *release_environment
+       <<: *common_environment
+       <<: *release_environment
     working_directory: /tmp/workspace/src
     steps:
       - checkout
@@ -225,8 +266,8 @@ jobs:
   sync-sql-to-develop:
     <<: *defaults
     environment:
-      <<: *common_environment
-      <<: *develop_environment
+       <<: *common_environment
+       <<: *develop_environment
     working_directory: /tmp/workspace/src
     steps:
       - checkout
@@ -239,13 +280,14 @@ jobs:
       - run: echo $SQLPROXY_KEY | base64 -d > key.json
       - run: /home/circleci/sql_to_sync_site.sh develop
 
-
 workflow_definitions:
   develop_common: &develop_common
     context: org-global
     filters:
       branches:
-        only: develop
+        only:
+          - develop
+          - add-tests
   release_common: &release_common
     context: org-global
     filters:
@@ -270,39 +312,47 @@ workflows:
   version: 2
   develop:
     jobs:
-      - build-branch:
-          <<: *develop_common
-      - deploy-develop:
-          <<: *develop_common
-          requires:
-            - build-branch
-      - prepare-release:
-          <<: *develop_common
-          requires:
-            - deploy-develop
+    - build-branch:
+        <<: *develop_common
+    - deploy-develop:
+        <<: *develop_common
+        requires:
+          - build-branch
+    - test-develop:
+        <<: *develop_common
+        requires:
+          - deploy-develop
+    - prepare-release:
+        <<: *develop_common
+        requires:
+          - deploy-develop
 
   release:
     jobs:
-      - build-release:
-          <<: *release_common
-      - deploy-release:
-          <<: *release_common
-          requires:
-            - build-release
-      - notify-promote:
-          <<: *release_common
-          requires:
-            - deploy-release
-      - hold-promote:
-          <<: *release_common
-          type: approval
-          requires:
-            - deploy-release
-      - finish-release:
-          <<: *release_common
-          requires:
-            - hold-promote
-            - notify-promote
+    - build-release:
+        <<: *release_common
+    - deploy-release:
+        <<: *release_common
+        requires:
+          - build-release
+    - test-release:
+        <<: *release_common
+        requires:
+          - deploy-release
+    - notify-promote:
+        <<: *release_common
+        requires:
+          - deploy-release
+    - hold-promote:
+        <<: *release_common
+        type: approval
+        requires:
+          - deploy-release
+    - finish-release:
+        <<: *release_common
+        requires:
+          - hold-promote
+          - notify-promote
   tag:
     jobs:
       - build-tag:
@@ -314,13 +364,13 @@ workflows:
 
   create-sync-sql:
     jobs:
-      - create-sync-sql:
-          <<: *sync_common
-      - sync-sql-to-release:
-          <<: *sync_common
-          requires:
-            - create-sync-sql
-      - sync-sql-to-develop:
-          <<: *sync_common
-          requires:
-            - sync-sql-to-release
+    - create-sync-sql:
+        <<: *sync_common
+    - sync-sql-to-release:
+        <<: *sync_common
+        requires:
+          - create-sync-sql
+    - sync-sql-to-develop:
+        <<: *sync_common
+        requires:
+          - sync-sql-to-release

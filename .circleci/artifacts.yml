@@ -1,0 +1,38 @@
+job_environments:
+  common_environment: &common_environment
+    APP_HOSTPATH:
+    CONTAINER_PREFIX: planet4-switzerland
+    WP_DB_NAME_PREFIX: planet4-switzerl_wordpress
+  develop_environment: &develop_environment
+    APP_ENVIRONMENT: development
+    APP_HOSTNAME: develop.greenpeace.ch
+    CLOUDSQL_INSTANCE: p4-develop-k8s
+    GOOGLE_PROJECT_ID: planet-4-151612
+    GCLOUD_CLUSTER: p4-development
+    HELM_NAMESPACE: develop
+    HELM_RELEASE: planet4-switzerland
+    NEWRELIC_APPNAME: P4 Switzerland Development
+    WP_DB_NAME: planet4-switzerl_wordpress_develop
+    WP_STATELESS_BUCKET: planet4-switzerland-stateless-develop
+  release_environment: &release_environment
+    APP_ENVIRONMENT: staging
+    APP_HOSTNAME: release.greenpeace.ch
+    CLOUDSQL_INSTANCE: planet4-prod
+    GCLOUD_CLUSTER: planet4-production
+    GOOGLE_PROJECT_ID: planet4-production
+    HELM_NAMESPACE: switzerland
+    HELM_RELEASE: planet4-switzerland-release
+    NEWRELIC_APPNAME: P4 Switzerland Release
+    WP_DB_NAME: planet4-switzerl_wordpress_release
+    WP_STATELESS_BUCKET: planet4-switzerland-stateless-release
+  production_environment: &production_environment
+    APP_HOSTNAME: master.greenpeace.ch
+    CLOUDSQL_INSTANCE: planet4-prod
+    GCLOUD_CLUSTER: planet4-production
+    GOOGLE_PROJECT_ID: planet4-production
+    HELM_NAMESPACE: switzerland
+    HELM_RELEASE: planet4-switzerland-master
+    MIN_REPLICA_COUNT: 2
+    NEWRELIC_APPNAME: P4 Switzerland Production
+    WP_DB_NAME: planet4-switzerl_wordpress_master
+    WP_STATELESS_BUCKET: planet4-switzerland-stateless
