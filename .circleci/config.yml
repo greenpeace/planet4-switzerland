@@ -84,6 +84,9 @@ job_definitions:
         image: selenium/standalone-chrome-debug:3
     steps:
       - checkout
+      - run: if [ ! "$(ls -A tests)" ]; then
+                  circleci-agent step halt
+             fi
       - run: dockerize -wait tcp://selenium:4444
       - run: codeceptionify.sh .
       - run: codecept run --xml=junit.xml --html
