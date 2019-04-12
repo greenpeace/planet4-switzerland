@@ -43,6 +43,7 @@ job_environments:
     NEWRELIC_APPNAME: P4 Switzerland Production
     WP_DB_NAME: planet4-switzerl_wordpress_master
     WP_STATELESS_BUCKET: planet4-switzerland-stateless
+
 job_definitions:
   build_steps: &build_steps
     working_directory: ~/
