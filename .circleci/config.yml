@@ -84,7 +84,7 @@ job_definitions:
         image: selenium/standalone-chrome-debug:3
     steps:
       - checkout
-      - run: if [ ! "$(ls -A tests)" ]; then
+      - run: if [ ! -d "tests" ]; then
                   circleci-agent step halt
              fi
       - run: dockerize -wait tcp://selenium:4444
