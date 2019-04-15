@@ -6,4 +6,4 @@ $I->amOnPage('/');
 
 $headerBackgroundColor = $I->getCSSValue('nav#header', 'background-color');
 
-$I->assertEquals('rgba(255, 255, 255, 1)', $headerBackgroundColor);
+$I->assertEquals('rgba(7, 67, 101, 0.8)', $headerBackgroundColor);
