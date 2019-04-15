@@ -200,7 +200,6 @@ jobs:
     <<: *test_steps
 
   test-release:
-    <<: *defaults
     environment:
       <<: *common_environment
       <<: *release_environment
@@ -343,12 +342,12 @@ workflows:
     - notify-promote:
         <<: *release_common
         requires:
-          - deploy-release
+          - test-release
     - hold-promote:
         <<: *release_common
         type: approval
         requires:
-          - deploy-release
+          - test-release
     - finish-release:
         <<: *release_common
         requires:
