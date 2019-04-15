@@ -8,6 +8,8 @@ job_environments:
   common_environment: &common_environment
     CONTAINER_PREFIX: planet4-switzerland
     APP_HOSTPATH:
+    CODECEPTION_SELENIUM_HOST: selenium
+    CODECEPTION_SELENIUM_PORT: 4444
   develop_environment: &develop_environment
     APP_ENVIRONMENT: development
     APP_HOSTNAME: develop.greenpeace.ch
@@ -283,9 +285,7 @@ workflow_definitions:
     context: org-global
     filters:
       branches:
-        only:
-          - develop
-          - add-tests
+        only: develop
   release_common: &release_common
     context: org-global
     filters:
