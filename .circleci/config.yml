@@ -194,7 +194,6 @@ jobs:
     <<: *notify_hold
 
   test-develop:
-    <<: *defaults
     environment:
       <<: *common_environment
       <<: *develop_environment
