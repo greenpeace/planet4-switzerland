@@ -19,8 +19,6 @@
 		"install:plugin-acf": "wp plugin install --activate https://raw.githubusercontent.com/greenpeace/planet4-3rdparty-plugins/master/advanced-custom-fields-pro.5.8.0-RC2.zip",
 		"install:plugin-gravityforms": "wp plugin install --activate https://raw.githubusercontent.com/greenpeace/planet4-3rdparty-plugins/master/gravityforms_2.4.8.9.zip",
 		"install:plugin-gravityformsgutenberg": "wp plugin install --activate https://raw.githubusercontent.com/greenpeace/planet4-3rdparty-plugins/master/gravityformsgutenberg_1.0-rc-1.2.zip",
-		"install:plugin-swf": "wp plugin install --activate https://raw.githubusercontent.com/greenpeace/planet4-3rdparty-plugins/master/social-warfare_3.5.4.zip",
-		"install:plugin-swfpro": "wp plugin install --activate https://raw.githubusercontent.com/greenpeace/planet4-3rdparty-plugins/master/social-warfare-pro_3.5.4.zip",
 
 		"site:custom": [
 			"@core:language",
