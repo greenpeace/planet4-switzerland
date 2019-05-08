@@ -29,9 +29,7 @@
 			"@install:plugin-wpml-stringtranslate",
 			"@install:plugin-acf",
 			"@install:plugin-gravityforms",
-			"@install:plugin-gravityformsgutenberg",
-			"@install:plugin-swf",
-			"@install:plugin-swfpro"
+			"@install:plugin-gravityformsgutenberg"
 		]
 	}
 }
