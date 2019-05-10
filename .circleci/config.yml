@@ -27,6 +27,8 @@ job_environments:
     GOOGLE_PROJECT_ID: planet4-production
     HELM_NAMESPACE: switzerland
     HELM_RELEASE: planet4-switzerland-release
+    MAX_REPLICA_COUNT: 1
+    MIN_REPLICA_COUNT: 1
     NEWRELIC_APPNAME: P4 Switzerland Release
     WP_DB_NAME: planet4-switzerl_wordpress_release
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-release
@@ -37,7 +39,8 @@ job_environments:
     GOOGLE_PROJECT_ID: planet4-production
     HELM_NAMESPACE: switzerland
     HELM_RELEASE: planet4-switzerland-master
-    MIN_REPLICA_COUNT: 2
+    MAX_REPLICA_COUNT: 1
+    MIN_REPLICA_COUNT: 1
     NEWRELIC_APPNAME: P4 Switzerland Production
     WP_DB_NAME: planet4-switzerl_wordpress_master
     WP_STATELESS_BUCKET: planet4-switzerland-stateless
