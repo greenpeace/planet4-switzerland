@@ -27,20 +27,18 @@ job_environments:
     GOOGLE_PROJECT_ID: planet4-production
     HELM_NAMESPACE: switzerland
     HELM_RELEASE: planet4-switzerland-release
-    MAX_REPLICA_COUNT: 1
-    MIN_REPLICA_COUNT: 1
+    MIN_REPLICA_COUNT: 2
     NEWRELIC_APPNAME: P4 Switzerland Release
     WP_DB_NAME: planet4-switzerl_wordpress_release
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-release
   production_environment: &production_environment
-    APP_HOSTNAME: master.greenpeace.ch
+    APP_HOSTNAME: www.greenpeace.ch
     CLOUDSQL_INSTANCE: planet4-prod
     GCLOUD_CLUSTER: planet4-production
     GOOGLE_PROJECT_ID: planet4-production
     HELM_NAMESPACE: switzerland
     HELM_RELEASE: planet4-switzerland-master
-    MAX_REPLICA_COUNT: 1
-    MIN_REPLICA_COUNT: 1
+    MIN_REPLICA_COUNT: 2
     NEWRELIC_APPNAME: P4 Switzerland Production
     WP_DB_NAME: planet4-switzerl_wordpress_master
     WP_STATELESS_BUCKET: planet4-switzerland-stateless

@@ -25,7 +25,7 @@ job_environments:
     WP_DB_NAME: planet4-switzerl_wordpress_release
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-release
   production_environment: &production_environment
-    APP_HOSTNAME: master.greenpeace.ch
+    APP_HOSTNAME: www.greenpeace.ch
     CLOUDSQL_INSTANCE: planet4-prod
     GCLOUD_CLUSTER: planet4-production
     GOOGLE_PROJECT_ID: planet4-production
