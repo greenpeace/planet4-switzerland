@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: gcr.io/planet-4-151612/p4-builder:latest
+    - image: greenpeaceinternational/p4-builder:latest
 
 job_environments:
   common_environment: &common_environment
@@ -27,7 +27,6 @@ job_environments:
     GOOGLE_PROJECT_ID: planet4-production
     HELM_NAMESPACE: switzerland
     HELM_RELEASE: planet4-switzerland-release
-    MIN_REPLICA_COUNT: 2
     NEWRELIC_APPNAME: P4 Switzerland Release
     WP_DB_NAME: planet4-switzerl_wordpress_release
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-release
