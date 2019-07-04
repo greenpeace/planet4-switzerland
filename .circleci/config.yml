@@ -278,6 +278,19 @@ jobs:
       - run: echo $SQLPROXY_KEY | base64 -d > key.json
       - run: /home/circleci/sql_to_sync_site.sh develop
 
+  backup:
+    docker:
+      - image: greenpeaceinternational/planet4-backup:latest
+    environment:
+      <<: *common_environment
+      <<: *production_environment
+    working_directory: /app
+    steps:
+      - run: echo "backup has been run"
+      - run: pwd
+      - run: ls
+      - run: ./go.sh
+
 workflow_definitions:
   develop_common: &develop_common
     context: org-global
@@ -370,3 +383,45 @@ workflows:
         <<: *sync_common
         requires:
           - sync-sql-to-release
+
+  create-sync-auto:
+    triggers:
+      - schedule:
+          cron: "10 01 4 * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - create-sync-sql:
+          context: org-global
+      - sync-sql-to-release:
+          context: org-global
+          requires:
+            - create-sync-sql
+      - sync-sql-to-develop:
+          context: org-global
+          requires:
+            - sync-sql-to-release
+
+  backup:
+    triggers:
+      - schedule:
+          cron: "30 02 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - backup:
+          context: org-global
+
+  backup-manual:
+    jobs:
+      - backup:
+          context: org-global
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /backup.*/
