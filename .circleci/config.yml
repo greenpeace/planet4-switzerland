@@ -387,7 +387,7 @@ workflows:
   create-sync-auto:
     triggers:
       - schedule:
-          cron: "10 01 7 * *"
+          cron: "10 01 1 * *"
           filters:
             branches:
               only:
