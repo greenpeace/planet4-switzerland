@@ -261,6 +261,17 @@ jobs:
       - run: echo $SQLPROXY_KEY | base64 -d > key.json
       - run: /home/circleci/sql_to_sync_site.sh release
 
+  notify-sync-auto:
+    <<: *defaults
+    environment:
+       <<: *common_environment
+       <<: *production_environment
+    working_directory: /tmp/workspace/src
+    steps:
+      - checkout
+      - run: activate-gcloud-account.sh
+      - run: /home/circleci/notify-sync-admins.sh
+
   sync-sql-to-develop:
     <<: *defaults
     environment:
@@ -403,6 +414,18 @@ workflows:
           context: org-global
           requires:
             - sync-sql-to-release
+
+  notify-sync-auto:
+    triggers:
+      - schedule:
+          cron: "10 02 28 * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - notify-sync-auto:
+          context: org-global
 
   backup:
     triggers:
