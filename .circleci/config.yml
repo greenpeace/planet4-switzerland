@@ -302,6 +302,41 @@ jobs:
       - run: ls
       - run: ./go.sh
 
+  backstop-history:
+    docker:
+      - image: greenpeaceinternational/planet4-backstop:master
+    environment:
+      <<: *common_environment
+      <<: *develop_environment
+    working_directory: /src
+    steps:
+      - run: ./checkout.sh
+      - run: ./mergescenarios.sh
+      - run: mkdir /app/ -p
+      - run: ./makehistory.sh
+      - persist_to_workspace:
+          root: /app
+          paths:
+            - backstop_data
+
+  backstop-compare:
+    docker:
+      - image: greenpeaceinternational/planet4-backstop:master
+    environment:
+      <<: *common_environment
+      <<: *develop_environment
+    working_directory: /src
+    steps:
+      - run: ./checkout.sh
+      - run: ./mergescenarios.sh
+      - run: mkdir /app/ -p
+      - attach_workspace:
+          at: /app
+      - run: ./makecomparison.sh
+      - store_artifacts:
+          path: /app/backstop_data
+
+
 workflow_definitions:
   develop_common: &develop_common
     context: org-global
@@ -332,13 +367,21 @@ workflows:
   version: 2
   develop:
     jobs:
+    - backstop-history:
+        <<: *develop_common
     - build-branch:
         <<: *develop_common
+        requires:
+          - backstop-history
     - deploy-develop:
         <<: *develop_common
         requires:
           - build-branch
     - test-develop:
+        <<: *develop_common
+        requires:
+          - deploy-develop
+    - backstop-compare:
         <<: *develop_common
         requires:
           - deploy-develop
