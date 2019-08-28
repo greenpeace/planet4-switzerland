@@ -1,0 +1,9 @@
+{
+  "scenarios": [
+    {
+      "label": "Planet4 GPCH Explore (DE)",
+      "url": "https://APP_HOSTNAME/de/erkunden//"
+    }
+  ]
+}
+
