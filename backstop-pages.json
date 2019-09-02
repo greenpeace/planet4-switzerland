@@ -1,8 +1,32 @@
 {
   "scenarios": [
     {
+      "label": "Planet4 GPCH Home (DE)",
+      "url": "https://APP_HOSTNAME/de/"
+    },
+    {
       "label": "Planet4 GPCH Explore (DE)",
       "url": "https://APP_HOSTNAME/de/erkunden/"
+    },
+    {
+      "label": "Planet4 GPCH Campaign Page Climate (DE)",
+      "url": "https://APP_HOSTNAME/de/erkunden/klima/"
+    },
+    {
+      "label": "Planet4 GPCH Donations (DE)",
+      "url": "https://APP_HOSTNAME/de/handeln/spenden/"
+    },
+    {
+      "label": "Planet4 GPCH Home (FR)",
+      "url": "https://APP_HOSTNAME/fr/"
+    },
+    {
+      "label": "Planet4 GPCH Campaign Page Nutrition (FR)",
+      "url": "https://APP_HOSTNAME/fr/tag/nutrition/"
+    },
+    {
+      "label": "Planet4 GPCH Story (FR)",
+      "url": "https://APP_HOSTNAME/fr/story-fr/35419/amazonie-tous-responsables/"
     }
   ]
 }
