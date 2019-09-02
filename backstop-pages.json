@@ -10,13 +10,13 @@
       "label": "Planet4 GPCH Explore (DE)",
       "url": "https://APP_HOSTNAME/de/erkunden/",
       "hideSelectors": ["#_hj_feedback_container"],
-      "hoverSelectors": [".thumbnail-largeview-container .campaign-card-column:nth-child(2) .yellow-cta"]
+      "hoverSelector": ".thumbnail-largeview-container .campaign-card-column:nth-child(2) .yellow-cta"
     },
     {
       "label": "Planet4 GPCH Campaign Page Climate (DE)",
       "url": "https://APP_HOSTNAME/de/erkunden/klima/",
       "hideSelectors": ["#_hj_feedback_container"],
-      "hoverSelectors": [".block.covers-block .row .col-lg-4:nth-child(2) a.btn"]
+      "hoverSelector": ".block.covers-block .row .col-lg-4:nth-child(2) a.btn"
     },
     {
       "label": "Planet4 GPCH Donations (DE)",
@@ -34,7 +34,7 @@
       "label": "Planet4 GPCH Campaign Page Nutrition (FR)",
       "url": "https://APP_HOSTNAME/fr/tag/nutrition/",
       "hideSelectors": ["#_hj_feedback_container"],
-      "hoverSelectors": [".block.covers-block .row .col-lg-4:nth-child(2) a.btn"]
+      "hoverSelector": ".block.covers-block .row .col-lg-4:nth-child(2) a.btn"
     },
     {
       "label": "Planet4 GPCH Story (FR)",
