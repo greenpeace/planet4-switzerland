@@ -1,4 +1,15 @@
-version: 2
+version: 2.1
+
+parameters:
+  run_release_init:
+    type: boolean
+    default: true
+  run_release_hold:
+    type: boolean
+    default: false
+  run_release_finish:
+    type: boolean
+    default: false
 
 defaults: &defaults
   docker:
@@ -147,6 +158,37 @@ job_definitions:
       - run: activate-gcloud-account.sh
       - run: BUILD_TAG=build-$(cat /tmp/workspace/var/circle-build-num) make -j2 deploy
 
+  backstop_history_steps: &backstop_history_steps
+    docker:
+      - image: greenpeaceinternational/planet4-backstop:latest
+    working_directory: /src
+    steps:
+      - run: ./checkout.sh
+      - run: ./mergescenarios.sh
+      - run: mkdir /app/ -p
+      - run: ./makehistory.sh
+      - store_artifacts:
+          path: /app/backstop_data
+      - persist_to_workspace:
+          root: /app
+          paths:
+            - backstop_data
+
+  backstop_compare_steps: &backstop_compare_steps
+    docker:
+      - image: greenpeaceinternational/planet4-backstop:latest
+    working_directory: /src
+    steps:
+      - run: ./checkout.sh
+      - run: ./mergescenarios.sh
+      - run: mkdir /app/ -p
+      - attach_workspace:
+          at: /app
+      - run: ./makecomparison.sh
+      - store_artifacts:
+          path: /app/backstop_data
+
+
 jobs:
   build-branch:
     <<: *defaults
@@ -228,8 +270,8 @@ jobs:
   create-sync-sql:
     <<: *defaults
     environment:
-       <<: *common_environment
-       <<: *production_environment
+      <<: *common_environment
+      <<: *production_environment
     working_directory: /tmp/workspace/src
     steps:
       - checkout
@@ -247,8 +289,8 @@ jobs:
   sync-sql-to-release:
     <<: *defaults
     environment:
-       <<: *common_environment
-       <<: *release_environment
+      <<: *common_environment
+      <<: *release_environment
     working_directory: /tmp/workspace/src
     steps:
       - checkout
@@ -264,8 +306,8 @@ jobs:
   notify-sync-auto:
     <<: *defaults
     environment:
-       <<: *common_environment
-       <<: *production_environment
+      <<: *common_environment
+      <<: *production_environment
     working_directory: /tmp/workspace/src
     steps:
       - checkout
@@ -275,8 +317,8 @@ jobs:
   sync-sql-to-develop:
     <<: *defaults
     environment:
-       <<: *common_environment
-       <<: *develop_environment
+      <<: *common_environment
+      <<: *develop_environment
     working_directory: /tmp/workspace/src
     steps:
       - checkout
@@ -301,6 +343,31 @@ jobs:
       - run: pwd
       - run: ls
       - run: ./go.sh
+
+  backstop-history-develop:
+    environment:
+      <<: *common_environment
+      <<: *develop_environment
+    <<: *backstop_history_steps
+
+  backstop-compare-develop:
+    environment:
+      <<: *common_environment
+      <<: *develop_environment
+    <<: *backstop_compare_steps
+
+  backstop-history-release:
+    environment:
+      <<: *common_environment
+      <<: *release_environment
+    <<: *backstop_history_steps
+
+  backstop-compare-release:
+    environment:
+      <<: *common_environment
+      <<: *release_environment
+    <<: *backstop_compare_steps
+
 
 workflow_definitions:
   develop_common: &develop_common
@@ -332,47 +399,72 @@ workflows:
   version: 2
   develop:
     jobs:
-    - build-branch:
-        <<: *develop_common
-    - deploy-develop:
-        <<: *develop_common
-        requires:
-          - build-branch
-    - test-develop:
-        <<: *develop_common
-        requires:
-          - deploy-develop
-    - prepare-release:
-        <<: *develop_common
-        requires:
-          - deploy-develop
+      - backstop-history-develop:
+          <<: *develop_common
+      - build-branch:
+          <<: *develop_common
+          requires:
+            - backstop-history-develop
+      - deploy-develop:
+          <<: *develop_common
+          requires:
+            - build-branch
+      - test-develop:
+          <<: *develop_common
+          requires:
+            - deploy-develop
+      - backstop-compare-develop:
+          <<: *develop_common
+          requires:
+            - deploy-develop
+      - prepare-release:
+          <<: *develop_common
+          requires:
+            - deploy-develop
 
-  release:
+  release-init:
+    when: << pipeline.parameters.run_release_init >>
     jobs:
-    - build-release:
-        <<: *release_common
-    - deploy-release:
-        <<: *release_common
-        requires:
-          - build-release
-    - test-release:
-        <<: *release_common
-        requires:
-          - deploy-release
-    - notify-promote:
-        <<: *release_common
-        requires:
-          - test-release
-    - hold-promote:
-        <<: *release_common
-        type: approval
-        requires:
-          - test-release
-    - finish-release:
-        <<: *release_common
-        requires:
-          - hold-promote
-          - notify-promote
+      - backstop-history-release:
+          <<: *release_common
+      - build-release:
+          <<: *release_common
+          requires:
+            - backstop-history-release
+      - deploy-release:
+          <<: *release_common
+          requires:
+            - build-release
+      - test-release:
+          <<: *release_common
+          requires:
+            - deploy-release
+      - backstop-compare-release:
+          <<: *release_common
+          requires:
+            - test-release
+
+  release-hold-and-finish:
+    when: << pipeline.parameters.run_release_hold >>
+    jobs:
+      - notify-promote:
+          <<: *release_common
+      - hold-promote:
+          <<: *release_common
+          type: approval
+      - finish-release:
+          <<: *release_common
+          requires:
+            - hold-promote
+            - notify-promote
+
+  release-finish:
+    when: << pipeline.parameters.run_release_finish >>
+    jobs:
+      - finish-release:
+          <<: *release_common
+
+
   tag:
     jobs:
       - build-tag:
@@ -384,16 +476,28 @@ workflows:
 
   create-sync-sql:
     jobs:
-    - create-sync-sql:
-        <<: *sync_common
-    - sync-sql-to-release:
-        <<: *sync_common
-        requires:
-          - create-sync-sql
-    - sync-sql-to-develop:
-        <<: *sync_common
-        requires:
-          - sync-sql-to-release
+      - create-sync-sql:
+          <<: *sync_common
+      - sync-sql-to-release:
+          <<: *sync_common
+          requires:
+            - create-sync-sql
+      - sync-sql-to-develop:
+          <<: *sync_common
+          requires:
+            - sync-sql-to-release
+
+  notify-sync-auto:
+    triggers:
+      - schedule:
+          cron: "10 02 28 * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - notify-sync-auto:
+          context: org-global
 
   create-sync-auto:
     triggers:
@@ -414,18 +518,6 @@ workflows:
           context: org-global
           requires:
             - sync-sql-to-release
-
-  notify-sync-auto:
-    triggers:
-      - schedule:
-          cron: "10 02 28 * *"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - notify-sync-auto:
-          context: org-global
 
   backup:
     triggers:
