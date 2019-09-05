@@ -33,6 +33,7 @@
     {
       "label": "Planet4 GPCH Campaign Page Nutrition (FR)",
       "url": "https://APP_HOSTNAME/fr/tag/nutrition/",
+      "delay": 2000,
       "hideSelectors": ["#_hj_feedback_container"],
       "hoverSelector": ".block.covers-block .row .col-lg-4:nth-child(2) a.btn"
     },
