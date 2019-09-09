@@ -9,12 +9,14 @@
     {
       "label": "Planet4 GPCH Explore (DE)",
       "url": "https://APP_HOSTNAME/de/erkunden/",
+      "delay": 2000,
       "hideSelectors": ["#_hj_feedback_container"],
       "hoverSelector": ".thumbnail-largeview-container .campaign-card-column:nth-child(2) .yellow-cta"
     },
     {
       "label": "Planet4 GPCH Campaign Page Climate (DE)",
       "url": "https://APP_HOSTNAME/de/erkunden/klima/",
+      "delay": 2000,
       "hideSelectors": ["#_hj_feedback_container"],
       "hoverSelector": ".block.covers-block .row .col-lg-4:nth-child(2) a.btn"
     },
@@ -40,6 +42,7 @@
     {
       "label": "Planet4 GPCH Story (FR)",
       "url": "https://APP_HOSTNAME/fr/story-fr/35419/amazonie-tous-responsables/",
+      "delay": 1000,
       "hideSelectors": ["#_hj_feedback_container"]
     }
   ]
