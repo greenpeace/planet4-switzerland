@@ -4,43 +4,46 @@
       "label": "Planet4 GPCH Home (DE)",
       "url": "https://APP_HOSTNAME/de/",
       "delay": 2000,
-      "hideSelectors": ["#_hj_feedback_container"]
+      "hideSelectors": ["#_hj_feedback_container", ".wp-block-embed-youtube"]
     },
     {
       "label": "Planet4 GPCH Explore (DE)",
       "url": "https://APP_HOSTNAME/de/erkunden/",
-      "hideSelectors": ["#_hj_feedback_container"],
+      "delay": 1000,
+      "hideSelectors": ["#_hj_feedback_container", ".wp-block-embed-youtube"],
       "hoverSelector": ".thumbnail-largeview-container .campaign-card-column:nth-child(2) .yellow-cta"
     },
     {
       "label": "Planet4 GPCH Campaign Page Climate (DE)",
       "url": "https://APP_HOSTNAME/de/erkunden/klima/",
-      "hideSelectors": ["#_hj_feedback_container"],
+      "delay": 1000,
+      "hideSelectors": ["#_hj_feedback_container", ".wp-block-embed-youtube"],
       "hoverSelector": ".block.covers-block .row .col-lg-4:nth-child(2) a.btn"
     },
     {
       "label": "Planet4 GPCH Donations (DE)",
       "url": "https://APP_HOSTNAME/de/handeln/spenden/",
-      "hideSelectors": ["#_hj_feedback_container"],
-      "delay": 3000
+      "hideSelectors": ["#_hj_feedback_container", ".wp-block-embed-youtube"],
+      "delay": 1000
     },
     {
       "label": "Planet4 GPCH Home (FR)",
       "url": "https://APP_HOSTNAME/fr/",
       "delay": 2000,
-      "hideSelectors": ["#_hj_feedback_container"]
+      "hideSelectors": ["#_hj_feedback_container", ".wp-block-embed-youtube"]
     },
     {
       "label": "Planet4 GPCH Campaign Page Nutrition (FR)",
       "url": "https://APP_HOSTNAME/fr/tag/nutrition/",
-      "delay": 2000,
-      "hideSelectors": ["#_hj_feedback_container"],
+      "delay": 1000,
+      "hideSelectors": ["#_hj_feedback_container", ".wp-block-embed-youtube"],
       "hoverSelector": ".block.covers-block .row .col-lg-4:nth-child(2) a.btn"
     },
     {
       "label": "Planet4 GPCH Story (FR)",
       "url": "https://APP_HOSTNAME/fr/story-fr/35419/amazonie-tous-responsables/",
-      "hideSelectors": ["#_hj_feedback_container"]
+      "delay": 1000,
+      "hideSelectors": ["#_hj_feedback_container", ".wp-block-embed-youtube"]
     }
   ]
 }
