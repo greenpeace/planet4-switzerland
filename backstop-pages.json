@@ -3,7 +3,7 @@
     {
       "label": "Planet4 GPCH Home (DE)",
       "url": "https://APP_HOSTNAME/de/",
-      "delay": 1000,
+      "delay": 2000,
       "hideSelectors": ["#_hj_feedback_container", ".wp-block-embed-youtube"]
     },
     {
@@ -29,7 +29,7 @@
     {
       "label": "Planet4 GPCH Home (FR)",
       "url": "https://APP_HOSTNAME/fr/",
-      "delay": 1000,
+      "delay": 2000,
       "hideSelectors": ["#_hj_feedback_container", ".wp-block-embed-youtube"]
     },
     {
