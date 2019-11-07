@@ -8,6 +8,7 @@
 		"wpackagist-plugin/wp-mail-smtp": "1.5.*",
 		"greenpeace/planet4-gpch-gutenberg-blocks": "0.1.*",
 		"greenpeace/planet4-gpch-plugin-blocks": "0.*",
+		"greenpeace/planet4-plugin-blocks": "1.*",
 		"greenpeace-gpch/wp-raisenow-community-plugin": "1.*",
 		"greenpeace/planet4-plugin-migrated-urls": "0.0.1", 
 		"greenpeace/planet4-plugin-engagingnetworks": "0.0.1"
