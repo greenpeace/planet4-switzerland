@@ -7,8 +7,7 @@
 		"wpackagist-plugin/duplicate-post": "3.*",
 		"wpackagist-plugin/wp-mail-smtp": "1.7.*",
 		"greenpeace/planet4-gpch-plugin-blocks": "0.*",
-		"greenpeace-gpch/wp-raisenow-community-plugin": "1.*",
-		"greenpeace/planet4-plugin-engagingnetworks": "0.0.1"
+		"greenpeace-gpch/wp-raisenow-community-plugin": "1.*"
 	},
 	"scripts": {
 		"core:language": "wp language core install de_DE;",
