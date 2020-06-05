@@ -1,5 +1,4 @@
 version: 2.1
-
 parameters:
   run_release_init:
     type: boolean
@@ -14,7 +13,6 @@ parameters:
 defaults: &defaults
   docker:
     - image: greenpeaceinternational/p4-builder:latest
-
 job_environments:
   common_environment: &common_environment
     CONTAINER_PREFIX: planet4-switzerland
@@ -108,7 +106,6 @@ job_definitions:
           path: /tmp/artifacts
       - store_artifacts:
           path: /tmp/artifacts
-
   prepare_release: &prepare_release
     working_directory: /tmp/workspace/src
     steps:
@@ -188,7 +185,6 @@ job_definitions:
       - store_artifacts:
           path: /app/backstop_data
 
-
 jobs:
   build-branch:
     <<: *defaults
@@ -196,7 +192,6 @@ jobs:
       <<: *common_environment
       <<: *develop_environment
     <<: *build_steps
-
   prepare-release:
     <<: *defaults
     <<: *prepare_release
@@ -218,7 +213,6 @@ jobs:
   finish-release:
     <<: *defaults
     <<: *finish_release
-
   build-tag:
     <<: *defaults
     environment:
@@ -238,7 +232,6 @@ jobs:
       <<: *common_environment
       <<: *develop_environment
     <<: *test_steps
-
   test-release:
     environment:
       <<: *common_environment
@@ -251,21 +244,18 @@ jobs:
       <<: *common_environment
       <<: *develop_environment
     <<: *deploy_steps
-
   deploy-release:
     <<: *defaults
     environment:
       <<: *common_environment
       <<: *release_environment
     <<: *deploy_steps
-
   deploy-tag:
     <<: *defaults
     environment:
       <<: *common_environment
       <<: *production_environment
     <<: *deploy_steps
-
 
   create-sync-sql:
     <<: *defaults
@@ -355,7 +345,6 @@ jobs:
       <<: *common_environment
       <<: *develop_environment
     <<: *backstop_compare_steps
-
   backstop-history-release:
     environment:
       <<: *common_environment
@@ -403,11 +392,10 @@ workflows:
           <<: *develop_common
       - build-branch:
           <<: *develop_common
-          requires:
-            - backstop-history-develop
       - deploy-develop:
           <<: *develop_common
           requires:
+            - backstop-history-develop
             - build-branch
       - test-develop:
           <<: *develop_common
@@ -429,11 +417,10 @@ workflows:
           <<: *release_common
       - build-release:
           <<: *release_common
-          requires:
-            - backstop-history-release
       - deploy-release:
           <<: *release_common
           requires:
+            - backstop-history-release
             - build-release
       - test-release:
           <<: *release_common
@@ -463,8 +450,6 @@ workflows:
     jobs:
       - finish-release:
           <<: *release_common
-
-
   tag:
     jobs:
       - build-tag:
