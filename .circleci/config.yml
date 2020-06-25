@@ -350,14 +350,21 @@ workflow_definitions:
 workflows:
   develop:
     jobs:
+      - visualtests-reference-develop:
+          <<: *develop_common
       - build-develop:
           <<: *develop_common
       - deploy-develop:
           <<: *develop_common
           requires:
             - build-develop
+            - visualtests-reference-develop
             - merge-develop
       - test-develop:
+          <<: *develop_common
+          requires:
+            - deploy-develop
+      - visualtests-compare-develop:
           <<: *develop_common
           requires:
             - deploy-develop
