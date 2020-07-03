@@ -3,8 +3,8 @@
 	"description": "Greenpeace P4 Switzerland",
 	"license": "MIT",
 	"require": {
-		"greenpeace/planet4-master-theme" : "dev-master",
-		"greenpeace/planet4-plugin-gutenberg-blocks": "dev-master",
+		"greenpeace/planet4-master-theme" : "v1.98.1",
+		"greenpeace/planet4-plugin-gutenberg-blocks": "v0.35",
 		"greenpeace/planet4-plugin-gutenberg-engagingnetworks": "dev-master",
 		"greenpeace/planet4-child-theme-switzerland" : "dev-feature/401-fix-font-sizes",
 		"wpackagist-plugin/duplicate-post": "3.*",
