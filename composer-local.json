@@ -5,7 +5,7 @@
 	"require": {
 		"greenpeace/planet4-master-theme" : "v1.98.1",
 		"greenpeace/planet4-plugin-gutenberg-blocks": "v0.35",
-		"greenpeace/planet4-child-theme-switzerland" : "1.*",
+		"greenpeace/planet4-child-theme-switzerland" : "dev-feature/387-gravity-form-tagmanager-event",
 		"wpackagist-plugin/duplicate-post": "3.*",
 		"wpackagist-plugin/wp-mail-smtp": "1.7.*",
 		"greenpeace/planet4-gpch-plugin-blocks": "0.*",
