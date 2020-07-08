@@ -3,9 +3,9 @@
 	"description": "Greenpeace P4 Switzerland",
 	"license": "MIT",
 	"require": {
-		"greenpeace/planet4-master-theme" : "v1.98.1",
-		"greenpeace/planet4-plugin-gutenberg-blocks": "v0.35",
-		"greenpeace/planet4-child-theme-switzerland" : "dev-feature/387-gravity-form-tagmanager-event",
+		"greenpeace/planet4-master-theme" : "v1.99",
+		"greenpeace/planet4-plugin-gutenberg-blocks": "v0.37",
+		"greenpeace/planet4-child-theme-switzerland" : "1.*",
 		"wpackagist-plugin/duplicate-post": "3.*",
 		"wpackagist-plugin/wp-mail-smtp": "1.7.*",
 		"greenpeace/planet4-gpch-plugin-blocks": "0.*",
