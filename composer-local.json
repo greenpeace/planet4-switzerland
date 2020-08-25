@@ -21,6 +21,8 @@
 		"install:plugin-acf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/advanced-custom-fields-pro_5.9.0.zip",
 		"install:plugin-gravityforms": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityforms_2.4.20.1.zip",
 		"install:plugin-gravityformszapier": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformszapier_3.3.zip",
+		"install:plugin-gravityformspolls": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformspolls_3.5.1.zip",
+		"install:plugin-gravityformsquiz": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformsquiz_3.3.zip",
 		"install:plugin-swf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare_4.0.2.zip",
 		"install:plugin-swfpro": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare-pro_4.0.2.zip",
 
@@ -33,7 +35,8 @@
 			"@install:plugin-acf",
 			"@install:plugin-gravityforms",
 			"@install:plugin-gravityformszapier",
-			"@install:plugin-gravityformsgutenberg",
+			"@install:plugin-gravityformspolls",
+			"@install:plugin-gravityformsquiz",
 			"@install:plugin-wpimport",
 			"@install:plugin-wpimport-acf",
 			"@install:plugin-wpml-allimport",
