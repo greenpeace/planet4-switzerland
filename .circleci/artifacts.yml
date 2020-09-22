@@ -13,6 +13,8 @@ job_environments:
     NEWRELIC_APPNAME: P4 Switzerland Development
     WP_DB_NAME: planet4-switzerl_wordpress_develop
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-develop
+  release_build_env: &release_build_env
+    GOOGLE_PROJECT_ID: planet4-production
   release_environment: &release_environment
     APP_ENVIRONMENT: staging
     APP_HOSTNAME: release.greenpeace.ch
