@@ -6,9 +6,14 @@ parameters:
     type: boolean
     default: false
 
+docker_auth: &docker_auth
+    username: $DOCKERHUB_USERNAME
+    password: $DOCKERHUB_PASSWORD
+
 defaults: &defaults
   docker:
     - image: greenpeaceinternational/p4-builder:latest
+      auth: &docker_auth
 
 orbs:
   slack: circleci/slack@3.4.2
@@ -56,6 +61,7 @@ job_definitions:
   visualtests_reference_steps: &visualtests_reference_steps
     docker:
       - image: greenpeaceinternational/planet4-backstop:latest
+        auth: &docker_auth
     working_directory: /src
     steps:
       - run: ./checkout.sh
@@ -72,11 +78,8 @@ job_definitions:
   visualtests_compare_steps: &visualtests_compare_steps
     docker:
       - image: greenpeaceinternational/planet4-backstop:latest
+        auth: &docker_auth
     working_directory: /src
-    parameters:
-      notify:
-        type: boolean
-        default: false
     steps:
       - run: ./checkout.sh
       - run: ./mergescenarios.sh
@@ -86,14 +89,6 @@ job_definitions:
       - run: ./makecomparison.sh
       - store_artifacts:
           path: /app/backstop_data
-      - when:
-          condition: << parameters.notify >>
-          steps:
-            # Notify p4-activity-ci
-            - slack/status:
-                fail_only: true
-                channel: C015MQGG3KQ
-                webhook: ${SLACK_NRO_WEBHOOK}
 
   build_steps: &build_steps
     working_directory: ~/
@@ -140,6 +135,7 @@ job_definitions:
       - image: gcr.io/planet-4-151612/p4-codeception:build-12
       - name: selenium
         image: selenium/standalone-chrome-debug:3.141.59-oxygen
+        auth: &docker_auth
     steps:
       - checkout
       - run: if [ ! -d "tests" ] || [ ! "$(ls -A tests)" ]; then circleci-agent step halt; fi
@@ -406,6 +402,7 @@ jobs:
   backup:
     docker:
       - image: greenpeaceinternational/planet4-backup:latest
+        auth: &docker_auth
     environment:
       <<: *common_environment
       <<: *production_environment
@@ -471,7 +468,6 @@ workflows:
             - deploy-staging
       - visualtests-compare:
           <<: *on_release_tag
-          notify: true
           requires:
             - deploy-staging
       - rollback-staging:
