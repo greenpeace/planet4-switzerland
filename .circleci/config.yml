@@ -1,9 +1,19 @@
 ---
 version: 2.1
 
+parameters:
+  rollback:
+    type: boolean
+    default: false
+
+docker_auth: &docker_auth
+    username: $DOCKERHUB_USERNAME
+    password: $DOCKERHUB_PASSWORD
+
 defaults: &defaults
   docker:
     - image: greenpeaceinternational/p4-builder:latest
+      auth: &docker_auth
 
 orbs:
   slack: circleci/slack@3.4.2
@@ -51,6 +61,7 @@ job_definitions:
   visualtests_reference_steps: &visualtests_reference_steps
     docker:
       - image: greenpeaceinternational/planet4-backstop:latest
+        auth: &docker_auth
     working_directory: /src
     steps:
       - run: ./checkout.sh
@@ -67,11 +78,8 @@ job_definitions:
   visualtests_compare_steps: &visualtests_compare_steps
     docker:
       - image: greenpeaceinternational/planet4-backstop:latest
+        auth: &docker_auth
     working_directory: /src
-    parameters:
-      notify:
-        type: boolean
-        default: false
     steps:
       - run: ./checkout.sh
       - run: ./mergescenarios.sh
@@ -81,14 +89,6 @@ job_definitions:
       - run: ./makecomparison.sh
       - store_artifacts:
           path: /app/backstop_data
-      - when:
-          condition: << parameters.notify >>
-          steps:
-            # Notify p4-activity-ci
-            - slack/status:
-                fail_only: true
-                channel: C015MQGG3KQ
-                webhook: ${SLACK_NRO_WEBHOOK}
 
   build_steps: &build_steps
     working_directory: ~/
@@ -135,6 +135,7 @@ job_definitions:
       - image: gcr.io/planet-4-151612/p4-codeception:build-12
       - name: selenium
         image: selenium/standalone-chrome-debug:3.141.59-oxygen
+        auth: &docker_auth
     steps:
       - checkout
       - run: if [ ! -d "tests" ] || [ ! "$(ls -A tests)" ]; then circleci-agent step halt; fi
@@ -196,23 +197,32 @@ job_definitions:
   finish_staging_steps: &finish_staging_steps
     working_directory: ~/
     steps:
-     - attach_workspace:
-         at: /tmp/workspace
-     - run: activate-gcloud-account.sh
-     - run:
-         name: Get hold-production status
-         command: |
-           url="https://circleci.com/api/v2/workflow/$CIRCLE_WORKFLOW_ID/job"
-           workflow=$(curl -s -u "${CIRCLE_TOKEN}": -X GET --header "Content-Type: application/json" "$url")
-           echo "$workflow" | jq -r '.items[] | select(.name=="hold-production") | .status ' >/tmp/workspace/prod_status
-     - run:
-         name: Rollback if production wasn't approved
-         command: |
-           if [ $(cat /tmp/workspace/prod_status) == 'success' ]; then
-             echo "No need to rollback, production deploy was initiated so staging should stay at this version."
-             exit 0;
-           fi
-           make rollback
+      - attach_workspace:
+          at: /tmp/workspace
+      - run: activate-gcloud-account.sh
+      - run:
+          name: Get hold-production status
+          command: |
+            url="https://circleci.com/api/v2/workflow/$CIRCLE_WORKFLOW_ID/job"
+            workflow=$(curl -s -u "${CIRCLE_TOKEN}": -X GET --header "Content-Type: application/json" "$url")
+            echo "$workflow" | jq -r '.items[] | select(.name=="hold-production") | .status ' >/tmp/workspace/prod_status
+      - run:
+          name: Rollback if production wasn't approved
+          command: |
+            if [ $(cat /tmp/workspace/prod_status) == 'success' ]; then
+              echo "No need to rollback, production deploy was initiated so staging should stay at this version."
+              exit 0;
+            fi
+            make rollback
+  rollback_steps: &rollback_steps
+    working_directory: ~/
+    steps:
+      - run: activate-gcloud-account.sh
+      - run: mkdir -p /tmp/workspace/var /tmp/workspace/src
+      - run: make checkout
+      - run: make copy
+      - run: make persist
+      - run: BUILD_TAG="${CIRCLE_TAG}" make deploy
 
 jobs:
   visualtests-reference-develop:
@@ -295,6 +305,13 @@ jobs:
       <<: *common_environment
       <<: *release_environment
     <<: *finish_staging_steps
+  
+  rollback-staging:
+    <<: *defaults
+    environment:
+      <<: *common_environment
+      <<: *release_environment
+    <<: *rollback_steps
   promote:
     <<: *defaults
     environment:
@@ -312,6 +329,13 @@ jobs:
       <<: *common_environment
       <<: *production_environment
     <<: *deploy_steps
+
+  rollback-production:
+    <<: *defaults
+    environment:
+      <<: *common_environment
+      <<: *production_environment
+    <<: *rollback_steps
 
   create-sync-sql:
     <<: *defaults
@@ -378,6 +402,7 @@ jobs:
   backup:
     docker:
       - image: greenpeaceinternational/planet4-backup:latest
+        auth: &docker_auth
     environment:
       <<: *common_environment
       <<: *production_environment
@@ -426,6 +451,7 @@ workflows:
       - merge-develop:
           <<: *on_develop_commit
   release:
+    unless: << pipeline.parameters.rollback >>
     jobs:
       - visualtests-reference:
           <<: *on_release_tag
@@ -442,7 +468,6 @@ workflows:
             - deploy-staging
       - visualtests-compare:
           <<: *on_release_tag
-          notify: true
           requires:
             - deploy-staging
       - rollback-staging:
@@ -466,6 +491,21 @@ workflows:
           requires:
             - test-staging
             - hold-production
+  rollback:
+    when: << pipeline.parameters.rollback >>
+    jobs:
+      - rollback-staging:
+          <<: *on_release_tag
+      - hold-production:
+          <<: *on_release_tag
+          type: approval
+          requires:
+            - rollback-staging
+      - rollback-production:
+          <<: *on_release_tag
+          requires:
+            - hold-production
+
   sync-from-production:
     triggers:
       - schedule:
