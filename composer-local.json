@@ -4,8 +4,7 @@
 	"license": "MIT",
 	"require": {
 		"greenpeace/planet4-child-theme-switzerland" : "1.*",
-		"wpackagist-plugin/duplicate-post": "3.*",
-		"wpackagist-plugin/wp-mail-smtp": "2.2.*",
+		"wpackagist-plugin/wp-mail-smtp": "2.5.*",
 		"greenpeace/planet4-gpch-plugin-blocks": "0.*",
 		"greenpeace-gpch/wp-raisenow-community-plugin": "1.*"
 	},
@@ -15,16 +14,13 @@
 		"install:plugin-wpml": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/sitepress-multilingual-cms.4.3.12.zip",
 		"install:plugin-wpml-management": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/wpml-translation-management.2.9.6.zip",
 		"install:plugin-wpml-stringtranslate": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/wpml-string-translation.3.0.9.zip",
-		"install:plugin-wpimport": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/wp-all-import-pro_4.6.3.zip",
-		"install:plugin-wpimport-acf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/wpai-acf-add-on_3.2.8.zip",
-		"install:plugin-wpml-allimport": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/wpml-all-import.2.0.5.zip",
-		"install:plugin-acf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/advanced-custom-fields-pro_5.9.0.zip",
-		"install:plugin-gravityforms": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityforms_2.4.20.1.zip",
+		"install:plugin-acf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/advanced-custom-fields-pro_5.9.3.zip",
+		"install:plugin-gravityforms": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityforms_2.4.21.5.zip",
 		"install:plugin-gravityformszapier": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformszapier_3.3.zip",
-		"install:plugin-gravityformspolls": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformspolls_3.5.1.zip",
-		"install:plugin-gravityformsquiz": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformsquiz_3.3.zip",
-		"install:plugin-swf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare_4.0.2.zip",
-		"install:plugin-swfpro": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare-pro_4.0.2.zip",
+		"install:plugin-gravityformspolls": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformspolls_3.7.zip",
+		"install:plugin-gravityformsquiz": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformsquiz_3.6.1.zip",
+		"install:plugin-swf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare_4.1.0.zip",
+		"install:plugin-swfpro": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare-pro_4.1.0.zip",
 
 		"site:custom": [
 			"@core:language",
@@ -37,9 +33,6 @@
 			"@install:plugin-gravityformszapier",
 			"@install:plugin-gravityformspolls",
 			"@install:plugin-gravityformsquiz",
-			"@install:plugin-wpimport",
-			"@install:plugin-wpimport-acf",
-			"@install:plugin-wpml-allimport",
 			"@install:plugin-swf",
 			"@install:plugin-swfpro"
 		]
