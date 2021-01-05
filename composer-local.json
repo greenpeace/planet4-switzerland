@@ -3,10 +3,10 @@
 	"description": "Greenpeace P4 Switzerland",
 	"license": "MIT",
 	"require": {
-		"greenpeace/planet4-child-theme-switzerland" : "dev-release/v1.0.65",
+		"greenpeace/planet4-child-theme-switzerland" : "dev-release/v1.0.67",
 		"wpackagist-plugin/wp-mail-smtp": "2.5.*",
 		"greenpeace/planet4-gpch-plugin-blocks": "0.1.*",
-		"greenpeace-gpch/wp-raisenow-community-plugin": "dev-release/v1.2.2",
+		"greenpeace-gpch/wp-raisenow-community-plugin": "1.*",
 		"wpackagist-plugin/wp-stateless": "3.*"
 	},
 	"scripts": {
