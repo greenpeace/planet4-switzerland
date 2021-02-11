@@ -9,7 +9,9 @@
 		"greenpeace-gpch/wp-raisenow-community-plugin": "1.*",
 		"plugins/sitepress-multilingual-cms": "*",
 		"plugins/wpml-translation-management": "*",
-		"plugins/wpml-string-translation": "*"
+		"plugins/wpml-string-translation": "*",
+		"greenpeace/planet4-master-theme" : "v1.139",
+		"greenpeace/planet4-plugin-gutenberg-blocks": "v0.78"
 	},
 	"scripts": {
 		"core:language": "wp language core install de_CH;",
