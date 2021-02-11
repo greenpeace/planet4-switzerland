@@ -13,7 +13,7 @@
 	},
 	"scripts": {
 		"core:language": "wp language core install de_CH;",
-		"core:language2": "wp language core install fr_CH;",
+		"core:language2": "wp language core install fr_FR;",
 		"install:plugin-acf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/advanced-custom-fields-pro_5.9.3.zip",
 		"install:plugin-gravityforms": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityforms_2.4.21.5.zip",
 		"install:plugin-gravityformszapier": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformszapier_3.3.zip",
