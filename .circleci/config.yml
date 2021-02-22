@@ -22,7 +22,6 @@ job_environments:
   common_environment: &common_environment
     CONTAINER_PREFIX: planet4-switzerland
     APP_HOSTPATH:
-    WP_VERSION: 5.4.2
   develop_environment: &develop_environment
     APP_ENVIRONMENT: development
     APP_HOSTNAME: www-dev.greenpeace.ch
@@ -167,10 +166,6 @@ job_definitions:
       - run: make persist
       - run: make build
       - run: make push
-      - run:
-          name: Notify failure
-          when: on_fail
-          command: TYPE="Build" notify-job-failure.sh
       - save_cache:
           key: composer-v5-{{ .Branch }}-{{ .Revision }}-{{ .BuildNum }}
           paths:
@@ -345,16 +340,6 @@ jobs:
       <<: *release_environment
     <<: *deploy_steps
 
-  merge-develop:
-    <<: *defaults
-    environment:
-      <<: *common_environment
-      <<: *develop_environment
-    working_directory: /tmp/workspace/src
-    steps:
-      - checkout
-      - run: merge-develop.sh
-
   finish-staging:
     <<: *defaults
     environment:
@@ -406,9 +391,9 @@ jobs:
       - run:
           name: Configure
           command: |
-            ${HOME}/scripts/activate-gcloud-account.sh
+            activate-gcloud-account.sh
       - run: echo $SQLPROXY_KEY | base64 -d > key.json
-      - run: /home/circleci/sql_create_sync_file.sh
+      - run: sql_create_sync_file.sh
 
   sync-to-staging:
     <<: *defaults
@@ -423,9 +408,9 @@ jobs:
       - run:
           name: Configure
           command: |
-            ${HOME}/scripts/activate-gcloud-account.sh
+            activate-gcloud-account.sh
       - run: echo $SQLPROXY_KEY | base64 -d > key.json
-      - run: /home/circleci/sql_to_sync_site.sh release
+      - run: sql_to_sync_site.sh release
 
   sync-to-develop:
     <<: *defaults
@@ -440,9 +425,9 @@ jobs:
       - run:
           name: Configure
           command: |
-            ${HOME}/scripts/activate-gcloud-account.sh
+            activate-gcloud-account.sh
       - run: echo $SQLPROXY_KEY | base64 -d > key.json
-      - run: /home/circleci/sql_to_sync_site.sh develop
+      - run: sql_to_sync_site.sh develop
 
   notify-sync:
     <<: *defaults
@@ -453,7 +438,7 @@ jobs:
     steps:
       - checkout
       - run: activate-gcloud-account.sh
-      - run: /home/circleci/notify-sync-admins.sh
+      - run: notify-sync-admins.sh
 
   backup:
     docker:
@@ -475,7 +460,7 @@ workflow_definitions:
     context: org-global
     filters:
       branches:
-        only: develop
+        only: main
   on_release_tag: &on_release_tag
     context: org-global
     filters:
@@ -496,7 +481,6 @@ workflows:
           requires:
             - build-develop
             - visualtests-reference-develop
-            - merge-develop
       - test-develop:
           <<: *on_develop_commit
           requires:
@@ -505,9 +489,7 @@ workflows:
           <<: *on_develop_commit
           requires:
             - deploy-develop
-      - merge-develop:
-          <<: *on_develop_commit
-  release:
+  production:
     unless: << pipeline.parameters.rollback >>
     jobs:
       - visualtests-reference:
