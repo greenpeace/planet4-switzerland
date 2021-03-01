@@ -1,6 +1,4 @@
 {
   "require": {
-    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/457-bs-bingo-block",
-    "greenpeace/planet4-gpch-plugin-blocks": "dev-feature/457-bs-bingo-block"
   }
 }
