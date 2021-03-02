@@ -10,7 +10,9 @@
         "plugins/sitepress-multilingual-cms": "*",
         "plugins/wpml-translation-management": "*",
         "plugins/wpml-string-translation": "*",
-        "cedaro/gravity-forms-iframe": "2.0.*"
+        "cedaro/gravity-forms-iframe": "2.0.*",
+        "greenpeace/planet4-master-theme": "v1.139",
+        "greenpeace/planet4-plugin-gutenberg-blocks":  "v0.78"
     },
     "scripts": {
         "core:language": "wp language core install de_CH;",
