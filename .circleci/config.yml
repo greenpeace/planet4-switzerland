@@ -7,8 +7,8 @@ parameters:
     default: false
 
 docker_auth: &docker_auth
-    username: $DOCKERHUB_USERNAME
-    password: $DOCKERHUB_PASSWORD
+  username: $DOCKERHUB_USERNAME
+  password: $DOCKERHUB_PASSWORD
 
 defaults: &defaults
   docker:
@@ -22,7 +22,6 @@ job_environments:
   common_environment: &common_environment
     CONTAINER_PREFIX: planet4-switzerland
     APP_HOSTPATH:
-    WP_VERSION: 5.4.2
   develop_environment: &develop_environment
     APP_ENVIRONMENT: development
     APP_HOSTNAME: www-dev.greenpeace.ch
@@ -180,7 +179,7 @@ job_definitions:
   test_steps: &test_steps
     working_directory: ~/project
     docker:
-      - image: gcr.io/planet-4-151612/p4-codeception:build-12
+      - image: greenpeaceinternationa/p4-codeception:latest
       - name: selenium
         image: selenium/standalone-chrome-debug:3.141.59-oxygen
         auth:
@@ -554,7 +553,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
     jobs:
       - create-sync-sql:
           context: org-global
@@ -574,7 +573,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
     jobs:
       - notify-sync:
           context: org-global
@@ -586,7 +585,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
     jobs:
       - backup:
           context: org-global
