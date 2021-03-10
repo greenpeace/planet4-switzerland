@@ -11,8 +11,8 @@
         "plugins/wpml-translation-management": "*",
         "plugins/wpml-string-translation": "*",
         "cedaro/gravity-forms-iframe": "2.0.*",
-        "greenpeace/planet4-master-theme": "v1.141",
-        "greenpeace/planet4-plugin-gutenberg-blocks":  "v0.80"
+        "greenpeace/planet4-master-theme": "v1.147",
+        "greenpeace/planet4-plugin-gutenberg-blocks":  "v0.86"
     },
     "scripts": {
         "core:language": "wp language core install de_CH;",
