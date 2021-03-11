@@ -4,7 +4,7 @@
     "license": "MIT",
     "require": {
         "greenpeace/planet4-child-theme-switzerland" : "1.*",
-        "wpackagist-plugin/wp-mail-smtp": "2.5.*",
+        "wpackagist-plugin/wp-mail-smtp": "2.6.*",
         "greenpeace/planet4-gpch-plugin-blocks": "0.*",
         "greenpeace-gpch/wp-raisenow-community-plugin": "1.*",
         "plugins/sitepress-multilingual-cms": "*",
