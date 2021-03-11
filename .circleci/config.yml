@@ -22,6 +22,7 @@ job_environments:
   common_environment: &common_environment
     CONTAINER_PREFIX: planet4-switzerland
     APP_HOSTPATH:
+    WP_VERSION: 5.4.2
   develop_environment: &develop_environment
     APP_ENVIRONMENT: development
     APP_HOSTNAME: www-dev.greenpeace.ch
