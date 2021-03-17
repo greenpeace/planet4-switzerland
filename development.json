@@ -1,5 +1,7 @@
 {
   "require": {
-    "wpackagist-plugin/timber-library": "1.18.*"
+    "wpackagist-plugin/timber-library": "1.18.*",
+    "greenpeace/planet4-master-theme": "dev-master",
+    "greenpeace/planet4-plugin-gutenberg-blocks":  "dev-master"
   }
 }
