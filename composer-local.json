@@ -11,19 +11,19 @@
         "plugins/wpml-translation-management": "*",
         "plugins/wpml-string-translation": "*",
         "cedaro/gravity-forms-iframe": "2.0.*",
-        "greenpeace/planet4-master-theme": "v1.147",
-        "greenpeace/planet4-plugin-gutenberg-blocks":  "v0.86"
+        "greenpeace/planet4-master-theme": "1.*",
+        "greenpeace/planet4-plugin-gutenberg-blocks":  "*"
     },
     "scripts": {
         "core:language": "wp language core install de_CH;",
         "core:language2": "wp language core install fr_FR;",
-        "install:plugin-acf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/advanced-custom-fields-pro_5.9.3.zip",
-        "install:plugin-gravityforms": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityforms_2.4.21.5.zip",
+        "install:plugin-acf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/advanced-custom-fields-pro_5.9.5.zip",
+        "install:plugin-gravityforms": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityforms_2.4.23.3.zip",
         "install:plugin-gravityformszapier": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformszapier_3.3.zip",
-        "install:plugin-gravityformspolls": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformspolls_3.7.zip",
-        "install:plugin-gravityformsquiz": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformsquiz_3.6.1.zip",
-        "install:plugin-swf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare_4.1.0.zip",
-        "install:plugin-swfpro": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare-pro_4.1.0.zip",
+        "install:plugin-gravityformspolls": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformspolls_3.7.1.zip",
+        "install:plugin-gravityformsquiz": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformsquiz_3.6.2.zip",
+        "install:plugin-swf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare_4.2.1.zip",
+        "install:plugin-swfpro": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare-pro_4.2.1.zip",
 
         "site:custom": [
             "@core:language",
