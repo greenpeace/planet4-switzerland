@@ -12,7 +12,7 @@
         "plugins/wpml-string-translation": "*",
         "cedaro/gravity-forms-iframe": "2.0.*",
         "greenpeace/planet4-master-theme": "1.*",
-        "greenpeace/planet4-plugin-gutenberg-blocks":  "*"
+        "greenpeace/planet4-plugin-gutenberg-blocks":  "v0.*"
     },
     "scripts": {
         "core:language": "wp language core install de_CH;",
