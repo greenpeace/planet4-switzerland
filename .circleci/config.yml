@@ -53,7 +53,6 @@ job_environments:
     GOOGLE_PROJECT_ID: planet4-production
     HELM_NAMESPACE: switzerland
     HELM_RELEASE: planet4-switzerland-master
-    MIN_REPLICA_COUNT: 2
     NEWRELIC_APPNAME: P4 Switzerland Production
     WP_DB_NAME: planet4-switzerl_wordpress_master
     WP_STATELESS_BUCKET: planet4-switzerland-stateless
@@ -348,7 +347,7 @@ jobs:
       <<: *common_environment
       <<: *release_environment
     <<: *finish_staging_steps
-  
+
   rollback-staging:
     <<: *defaults
     environment:
@@ -459,12 +458,16 @@ jobs:
 
 workflow_definitions:
   on_develop_commit: &on_develop_commit
-    context: org-global
+    context:
+      - org-global
+      - gpch
     filters:
       branches:
         only: main
   on_release_tag: &on_release_tag
-    context: org-global
+    context:
+      - org-global
+      - gpch
     filters:
       branches:
         ignore: /.*/
