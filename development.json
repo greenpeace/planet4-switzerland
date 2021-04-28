@@ -3,6 +3,7 @@
     "greenpeace/planet4-child-theme-switzerland": "dev-feature/455-p2p-share-block",
     "greenpeace/planet4-gpch-plugin-blocks": "dev-feature/455-p2p-share-block",
     "twilio/sdk": "^6.21",
-    "giggsey/libphonenumber-for-php": "^8.12"
+    "giggsey/libphonenumber-for-php": "^8.12",
+    "phplicengine/bitly": "^1.0"
   }
 }
