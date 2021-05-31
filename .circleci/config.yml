@@ -129,6 +129,8 @@ job_definitions:
       - attach_workspace:
           at: /app
       - run: ./makecomparison.sh
+      - store_test_results:
+          path: /app/backstop_data
       - store_artifacts:
           path: /app/backstop_data
       - when:
@@ -347,7 +349,7 @@ jobs:
       <<: *common_environment
       <<: *release_environment
     <<: *finish_staging_steps
-
+  
   rollback-staging:
     <<: *defaults
     environment:
@@ -458,16 +460,12 @@ jobs:
 
 workflow_definitions:
   on_develop_commit: &on_develop_commit
-    context:
-      - org-global
-      - gpch
+    context: org-global
     filters:
       branches:
         only: main
   on_release_tag: &on_release_tag
-    context:
-      - org-global
-      - gpch
+    context: org-global
     filters:
       branches:
         ignore: /.*/
