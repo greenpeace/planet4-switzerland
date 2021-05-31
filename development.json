@@ -1,4 +1,5 @@
 {
   "require": {
+    "greenpeace/planet4-gpch-plugin-blocks": "dev-release/v1.1"
   }
 }
