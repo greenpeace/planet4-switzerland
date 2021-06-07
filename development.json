@@ -1,5 +1,5 @@
 {
   "require": {
-    "greenpeace/planet4-gpch-plugin-blocks": "dev-release/v1.1"
+    "greenpeace/planet4-gpch-plugin-blocks": "dev-feature/503-psr4-compatibility"
   }
 }
