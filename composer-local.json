@@ -12,8 +12,6 @@
         "plugins/wpml-string-translation": "*",
         "plugins/wpml-media-translation": "*",
         "cedaro/gravity-forms-iframe": "2.0.*",
-        "greenpeace/planet4-master-theme": "v1.168",
-        "greenpeace/planet4-plugin-gutenberg-blocks":  "v0.106",
         "twilio/sdk": "^6.21",
         "giggsey/libphonenumber-for-php": "^8.12",
         "phplicengine/bitly": "^1.0"
