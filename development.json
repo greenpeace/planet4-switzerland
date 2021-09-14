@@ -1,5 +1,5 @@
 {
   "require": {
-    "greenpeace/planet4-gpch-plugin-blocks": "dev-feature/515-dreampeace-block"
+    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/527-embed-allowlist"
   }
 }
