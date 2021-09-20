@@ -460,12 +460,16 @@ jobs:
 
 workflow_definitions:
   on_develop_commit: &on_develop_commit
-    context: org-global
+    context:
+      - org-global
+      - gpch
     filters:
       branches:
         only: main
   on_release_tag: &on_release_tag
-    context: org-global
+    context:
+      - org-global
+      - gpch
     filters:
       branches:
         ignore: /.*/
