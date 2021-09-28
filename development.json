@@ -1,5 +1,5 @@
 {
   "require": {
-    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/527-embed-allowlist"
+    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/529-sextant-project-uid-gf"
   }
 }
