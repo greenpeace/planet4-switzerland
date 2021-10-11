@@ -1,5 +1,6 @@
 {
   "require": {
+    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/531-plugin-updates",
     "wpackagist-plugin/wp-mail-smtp": "3.1.*"
   },
   "scripts": {
