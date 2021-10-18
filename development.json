@@ -1,5 +1,5 @@
 {
   "require": {
-    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/531-plugin-updates"
+    "sybrew/the-seo-framework": "*"
   }
 }
