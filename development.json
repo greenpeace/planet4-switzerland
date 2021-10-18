@@ -1,7 +1,5 @@
 {
   "require": {
-    "sybrew/the-seo-framework": "*",
-    "greenpeace/planet4-master-theme": "*",
-    "greenpeace/planet4-plugin-gutenberg-blocks":  "*"
+    "sybrew/the-seo-framework": "*"
   }
 }
