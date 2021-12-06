@@ -1,6 +1,5 @@
 {
   "require": {
-    "sybrew/the-seo-framework": "*",
-    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/545-master-theme-fixes"
+    "sybrew/the-seo-framework": "*"
   }
 }
