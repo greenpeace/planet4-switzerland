@@ -1,6 +1,14 @@
 {
   "require": {
-    "sybrew/the-seo-framework": "*",
-    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/548-master-theme-fixes"
+    "sybrew/the-seo-framework": "*"
+  },
+  "scripts": {
+    "install:plugin-gravityformshubspot": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformshubspot_1.7.zip",
+    "install:plugin-semrushwritingassist": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/semrush-seo-writing-assistant_1.2.0.zip",
+
+    "site:custom": [
+      "@install:plugin-gravityformshubspot",
+      "@install:plugin-semrushwritingassist"
+    ]
   }
 }
