@@ -26,6 +26,8 @@
         "install:plugin-gravityformsquiz": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformsquiz_3.7.2.zip",
         "install:plugin-swf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare_4.3.0.zip",
         "install:plugin-swfpro": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare-pro_4.3.0.zip",
+        "install:plugin-gravityformshubspot": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformshubspot_1.7.zip",
+        "install:plugin-semrushwritingassist": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/semrush-seo-writing-assistant_1.2.0.zip",
 
         "site:custom": [
             "@core:language",
@@ -36,7 +38,9 @@
             "@install:plugin-gravityformspolls",
             "@install:plugin-gravityformsquiz",
             "@install:plugin-swf",
-            "@install:plugin-swfpro"
+            "@install:plugin-swfpro",
+            "@install:plugin-gravityformshubspot",
+            "@install:plugin-semrushwritingassist"
         ]
     }
 }
