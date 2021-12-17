@@ -30,7 +30,6 @@ job_environments:
     GCLOUD_CLUSTER: p4-development
     HELM_NAMESPACE: develop
     HELM_RELEASE: planet4-switzerland
-    NEWRELIC_APPNAME: P4 Switzerland Development
     WP_DB_NAME: planet4-switzerl_wordpress_develop
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-develop
   release_build_env: &release_build_env
@@ -43,7 +42,6 @@ job_environments:
     GOOGLE_PROJECT_ID: planet4-production
     HELM_NAMESPACE: switzerland
     HELM_RELEASE: planet4-switzerland-release
-    NEWRELIC_APPNAME: P4 Switzerland Release
     WP_DB_NAME: planet4-switzerl_wordpress_release
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-release
   production_environment: &production_environment
@@ -53,7 +51,6 @@ job_environments:
     GOOGLE_PROJECT_ID: planet4-production
     HELM_NAMESPACE: switzerland
     HELM_RELEASE: planet4-switzerland-master
-    NEWRELIC_APPNAME: P4 Switzerland Production
     WP_DB_NAME: planet4-switzerl_wordpress_master
     WP_STATELESS_BUCKET: planet4-switzerland-stateless
 
