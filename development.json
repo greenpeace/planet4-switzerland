@@ -1,5 +1,6 @@
 {
   "require": {
-    "sybrew/the-seo-framework": "*"
+    "sybrew/the-seo-framework": "*",
+    "greenpeace/planet4-gpch-plugin-blocks": "dev-feature/556-new-newsletter-form"
   }
 }
