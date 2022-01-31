@@ -1,6 +1,6 @@
 {
   "require": {
     "sybrew/the-seo-framework": "*",
-    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/567-new-header-footer"
+    "greenpeace/planet4-child-theme-switzerland" : "dev-release/v1.0.109"
   }
 }
