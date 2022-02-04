@@ -10,7 +10,6 @@
         "plugins/sitepress-multilingual-cms": "*",
         "plugins/wpml-translation-management": "*",
         "plugins/wpml-string-translation": "*",
-        "plugins/wpml-media-translation": "*",
         "cedaro/gravity-forms-iframe": "2.0.*",
         "twilio/sdk": "^6.21",
         "giggsey/libphonenumber-for-php": "^8.12",
