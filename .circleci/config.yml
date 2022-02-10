@@ -33,7 +33,7 @@ job_environments:
     WP_DB_NAME: planet4-switzerl_wordpress_develop
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-develop
     INGRESS_TLS: true
-    INGRESS_NOTTLS: false
+    INGRESS_NOTLS: false
   release_build_env: &release_build_env
     GOOGLE_PROJECT_ID: planet4-production
   release_environment: &release_environment
@@ -47,7 +47,7 @@ job_environments:
     WP_DB_NAME: planet4-switzerl_wordpress_release
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-release
     INGRESS_TLS: true
-    INGRESS_NOTTLS: false
+    INGRESS_NOTLS: false
   production_environment: &production_environment
     APP_HOSTNAME: www.greenpeace.ch
     CLOUDSQL_INSTANCE: planet4-prod
@@ -58,7 +58,7 @@ job_environments:
     WP_DB_NAME: planet4-switzerl_wordpress_master
     WP_STATELESS_BUCKET: planet4-switzerland-stateless
     INGRESS_TLS: true
-    INGRESS_NOTTLS: false
+    INGRESS_NOTLS: false
 
 
 commands:
