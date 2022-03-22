@@ -1,6 +1,7 @@
 {
   "require": {
     "sybrew/the-seo-framework": "*",
-    "greenpeace/planet4-gpch-plugin-blocks" : "dev-feature/557-update-dependencies"
+    "greenpeace/planet4-master-theme" : "v1.207.0",
+    "greenpeace/planet4-plugin-gutenberg-blocks": "v1.8.0"
   }
 }
