@@ -2,6 +2,9 @@
   "require": {
     "sybrew/the-seo-framework": "*",
     "greenpeace/planet4-master-theme" : "v1.207.0",
-    "greenpeace/planet4-plugin-gutenberg-blocks": "v1.8.0"
+    "greenpeace/planet4-plugin-gutenberg-blocks": "v1.8.0",
+    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/582-master-theme-style-fixes",
+    "greenpeace/planet4-gpch-plugin-blocks": "dev-feature/582-master-theme-style-updates"
+
   }
 }
