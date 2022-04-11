@@ -34,6 +34,7 @@ job_environments:
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-develop
     INGRESS_TLS: true
     INGRESS_NOTLS: false
+    WPML_ST_SYNC_TRANSLATION_FILES: true
   release_build_env: &release_build_env
     GOOGLE_PROJECT_ID: planet4-production
   release_environment: &release_environment
