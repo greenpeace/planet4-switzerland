@@ -32,9 +32,6 @@ job_environments:
     HELM_RELEASE: planet4-switzerland
     WP_DB_NAME: planet4-switzerl_wordpress_develop
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-develop
-    INGRESS_TLS: true
-    INGRESS_NOTLS: false
-    WPML_ST_SYNC_TRANSLATION_FILES: true
   release_build_env: &release_build_env
     GOOGLE_PROJECT_ID: planet4-production
   release_environment: &release_environment
@@ -47,8 +44,6 @@ job_environments:
     HELM_RELEASE: planet4-switzerland-release
     WP_DB_NAME: planet4-switzerl_wordpress_release
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-release
-    INGRESS_TLS: true
-    INGRESS_NOTLS: false
   production_environment: &production_environment
     APP_HOSTNAME: www.greenpeace.ch
     CLOUDSQL_INSTANCE: planet4-prod
@@ -58,8 +53,6 @@ job_environments:
     HELM_RELEASE: planet4-switzerland-master
     WP_DB_NAME: planet4-switzerl_wordpress_master
     WP_STATELESS_BUCKET: planet4-switzerland-stateless
-    INGRESS_TLS: true
-    INGRESS_NOTLS: false
 
 
 commands:
@@ -151,12 +144,6 @@ job_definitions:
     steps:
       - setup_remote_docker:
           docker_layer_caching: true
-      - restore_cache:
-          keys:
-            - composer-v5-{{ .Branch }}-{{ .Revision }}-{{ .BuildNum }}
-            - composer-v5-{{ .Branch }}-{{ .Revision }}
-            - composer-v5-{{ .Branch }}
-            - composer-v5
       - run: |
           if [[ -d source/cache ]]; then ls -al source/cache; fi
       - run: activate-gcloud-account.sh
@@ -171,10 +158,6 @@ job_definitions:
       - run: make persist
       - run: make build
       - run: make push
-      - save_cache:
-          key: composer-v5-{{ .Branch }}-{{ .Revision }}-{{ .BuildNum }}
-          paths:
-            - source/cache
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
