@@ -34,8 +34,8 @@
       "hoverSelector": ".block.covers-block .row .col-lg-4:nth-child(2) a.btn"
     },
     {
-      "label": "Planet4 GPCH Campaign Page Finance (FR)",
-      "url": "https://APP_HOSTNAME/fr/explorer/climat/finance-durable/",
+      "label": "Planet4 GPCH Campaign Page Climate (FR)",
+      "url": "https://APP_HOSTNAME/fr/explorer/climat/",
       "delay": 5000,
       "hideSelectors": ["#_hj_feedback_container", ".wp-block-embed-youtube"]
     },
