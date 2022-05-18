@@ -34,12 +34,6 @@
       "hoverSelector": ".block.covers-block .row .col-lg-4:nth-child(2) a.btn"
     },
     {
-      "label": "Planet4 GPCH Campaign Page Climate (FR)",
-      "url": "https://APP_HOSTNAME/fr/explorer/climat/",
-      "delay": 5000,
-      "hideSelectors": ["#_hj_feedback_container", ".wp-block-embed-youtube"]
-    },
-    {
       "label": "Planet4 GPCH Story (FR)",
       "url": "https://APP_HOSTNAME/fr/story-fr/81594/cuisiner-saison-regional/",
       "delay": 5000,
