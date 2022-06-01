@@ -3,6 +3,6 @@
     "sybrew/the-seo-framework": "*",
     "greenpeace/planet4-master-theme" : "dev-master",
     "greenpeace/planet4-plugin-gutenberg-blocks": "dev-master",
-    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/600-measure-ad-blockers"
+    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/6598-enable-yt-jsapi"
   }
 }
