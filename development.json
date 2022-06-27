@@ -4,6 +4,6 @@
     "greenpeace/planet4-plugin-gutenberg-blocks": "v1.21.0"
   },
   "extra": {
-    "wp-version": "5.8.1"
+    "wp-version": "5.9.3"
   }
 }
