@@ -1,8 +1,6 @@
 {
   "require": {
-    "sybrew/the-seo-framework": "*",
-    "greenpeace/planet4-master-theme" : "dev-master",
-    "greenpeace/planet4-plugin-gutenberg-blocks": "dev-master",
-    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/590-newsletter-subscription-form"
+    "greenpeace/planet4-master-theme" : "v1.220.0",
+    "greenpeace/planet4-plugin-gutenberg-blocks": "v1.21.0"
   }
 }
