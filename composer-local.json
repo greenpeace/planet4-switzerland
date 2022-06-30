@@ -8,7 +8,6 @@
         "greenpeace/planet4-gpch-plugin-blocks": "1.*",
         "greenpeace-gpch/wp-raisenow-community-plugin": "1.*",
         "plugins/sitepress-multilingual-cms": "*",
-        "plugins/wpml-translation-management": "*",
         "plugins/wpml-string-translation": "*",
         "cedaro/gravity-forms-iframe": "2.0.*",
         "twilio/sdk": "^6.21",
