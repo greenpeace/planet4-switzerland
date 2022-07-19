@@ -14,6 +14,12 @@
         "giggsey/libphonenumber-for-php": "^8.12",
         "phplicengine/bitly": "^1.0"
     },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "wikimedia/composer-merge-plugin": true
+        }
+    },
     "scripts": {
         "core:language": "wp language core install de_CH;",
         "core:language2": "wp language core install fr_FR;",
