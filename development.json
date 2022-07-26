@@ -1,8 +1,6 @@
 {
   "require": {
     "greenpeace/planet4-master-theme" : "dev-master",
-    "greenpeace/planet4-plugin-gutenberg-blocks": "dev-master",
-    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/583-donation-progress-bar",
-    "greenpeace/planet4-gpch-plugin-blocks": "dev-feature/583-donation-progress-bar"
+    "greenpeace/planet4-plugin-gutenberg-blocks": "dev-master"
   }
 }
