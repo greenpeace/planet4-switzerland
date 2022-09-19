@@ -36,7 +36,7 @@ job_environments:
     CLOUDSQL_INSTANCE: planet4-prod
     GCLOUD_CLUSTER: planet4-production
     GOOGLE_PROJECT_ID: planet4-production
-    HELM_NAMESPACE: switzerland
+    HELM_NAMESPACE: switzerland-staging
     HELM_RELEASE: planet4-switzerland-release
     WP_DB_NAME: planet4-switzerl_wordpress_release
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-release
