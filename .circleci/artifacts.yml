@@ -8,7 +8,7 @@ job_environments:
     CLOUDSQL_INSTANCE: p4-develop-k8s
     GOOGLE_PROJECT_ID: planet-4-151612
     GCLOUD_CLUSTER: p4-development
-    HELM_NAMESPACE: develop
+    HELM_NAMESPACE: switzerland
     HELM_RELEASE: planet4-switzerland
     WP_DB_NAME: planet4-switzerl_wordpress_develop
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-develop
@@ -20,7 +20,7 @@ job_environments:
     CLOUDSQL_INSTANCE: planet4-prod
     GCLOUD_CLUSTER: planet4-production
     GOOGLE_PROJECT_ID: planet4-production
-    HELM_NAMESPACE: switzerland
+    HELM_NAMESPACE: switzerland-staging
     HELM_RELEASE: planet4-switzerland-release
     WP_DB_NAME: planet4-switzerl_wordpress_release
     WP_STATELESS_BUCKET: planet4-switzerland-stateless-release
@@ -33,3 +33,4 @@ job_environments:
     HELM_RELEASE: planet4-switzerland-master
     WP_DB_NAME: planet4-switzerl_wordpress_master
     WP_STATELESS_BUCKET: planet4-switzerland-stateless
+    PHP_MEMORY_LIMIT: 2Gi
