@@ -12,7 +12,8 @@
         "cedaro/gravity-forms-iframe": "2.0.*",
         "twilio/sdk": "^6.21",
         "giggsey/libphonenumber-for-php": "^8.12",
-        "phplicengine/bitly": "^1.0"
+        "phplicengine/bitly": "^1.0",
+        "wpackagist-plugin/term-management-tools": "*"
     },
     "config": {
         "allow-plugins": {
