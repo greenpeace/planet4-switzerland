@@ -7,7 +7,7 @@
         "wpackagist-plugin/wp-mail-smtp": "3.1.*",
         "greenpeace/planet4-gpch-plugin-blocks": "1.*",
         "greenpeace-gpch/wp-raisenow-community-plugin": "1.*",
-        "greenpeace/planet4-gpch-plugin-tamaro": "*",
+        "greenpeace/planet4-gpch-plugin-tamaro": "1.*",
         "plugins/sitepress-multilingual-cms": "*",
         "plugins/wpml-string-translation": "*",
         "cedaro/gravity-forms-iframe": "2.0.*",
