@@ -373,6 +373,7 @@ jobs:
           command: echo $SQLPROXY_KEY | base64 -d > key.json
       - run:
           name: Sync staging site
+          no_output_timeout: 20m
           command: sql_to_sync_site.sh release
 
   sync-to-develop:
