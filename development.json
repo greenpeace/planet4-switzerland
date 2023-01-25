@@ -2,7 +2,6 @@
   "require": {
     "greenpeace/planet4-master-theme" : "dev-main",
     "greenpeace/planet4-plugin-gutenberg-blocks": "dev-main",
-    "greenpeace/planet4-gpch-plugin-tamaro": "dev-develop",
-    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/632-fix-conversion-events"
+    "greenpeace/planet4-gpch-plugin-tamaro": "dev-develop"
   }
 }
