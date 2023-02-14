@@ -1,7 +1,8 @@
 {
   "require": {
-    "greenpeace/planet4-master-theme" : "dev-main",
-    "greenpeace/planet4-plugin-gutenberg-blocks": "dev-main",
+    "greenpeace/planet4-master-theme" : "v1.245.1",
+    "greenpeace/planet4-plugin-gutenberg-blocks": "v1.47.0",
+    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/489-draft-parent-pages",
     "greenpeace/planet4-gpch-plugin-tamaro": "dev-develop"
   }
 }
