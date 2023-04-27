@@ -344,6 +344,7 @@ jobs:
       <<: *common_environment
       <<: *production_environment
     working_directory: /tmp/workspace/src
+    resource_class: xlarge
     steps:
       - checkout
       - attach_workspace:
@@ -361,6 +362,7 @@ jobs:
       <<: *common_environment
       <<: *release_environment
     working_directory: /tmp/workspace/src
+    resource_class: xlarge
     steps:
       - checkout
       - attach_workspace:
@@ -373,7 +375,7 @@ jobs:
           command: echo $SQLPROXY_KEY | base64 -d > key.json
       - run:
           name: Sync staging site
-          no_output_timeout: 20m
+          no_output_timeout: 30m
           command: sql_to_sync_site.sh release
 
   sync-to-develop:
@@ -382,6 +384,7 @@ jobs:
       <<: *common_environment
       <<: *develop_environment
     working_directory: /tmp/workspace/src
+    resource_class: xlarge
     steps:
       - checkout
       - attach_workspace:
@@ -397,6 +400,7 @@ jobs:
           command: echo $SQLPROXY_KEY | base64 -d > key.json
       - run:
           name: Sync dev site
+          no_output_timeout: 30m
           command: sql_to_sync_site.sh develop
 
   notify-sync:
