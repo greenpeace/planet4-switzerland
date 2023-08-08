@@ -27,6 +27,7 @@
         "install:plugin-acf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/advanced-custom-fields-pro_6.1.6.zip",
         "install:plugin-gravityformszapier": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformszapier_4.2.1.zip",
         "install:plugin-gravityformspolls": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformspolls_4.0.1.zip",
+        "install:plugin-gravityformsturnstyle": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformsturnstile_1.0.0.zip",
         "install:plugin-swf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare_4.4.1.zip",
         "install:plugin-swfpro": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare-pro_4.4.1.zip",
         "site:custom": [
@@ -35,6 +36,7 @@
             "@install:plugin-acf",
             "@install:plugin-gravityformszapier",
             "@install:plugin-gravityformspolls",
+            "@install:plugin-gravityformsturnstyle",
             "@install:plugin-swf",
             "@install:plugin-swfpro"
         ]
