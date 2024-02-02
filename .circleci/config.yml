@@ -351,6 +351,7 @@ jobs:
       - run:
           name: Sync staging site
           command: sql_to_sync_site.sh release
+          no_output_timeout: 20m
 
   sync-to-develop:
     <<: *defaults
@@ -374,6 +375,7 @@ jobs:
       - run:
           name: Sync dev site
           command: sql_to_sync_site.sh develop
+          no_output_timeout: 20m
 
   notify-sync:
     <<: *defaults
