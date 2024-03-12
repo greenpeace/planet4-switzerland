@@ -4,7 +4,7 @@
     "license": "MIT",
     "require": {
         "greenpeace/planet4-child-theme-switzerland" : "1.*",
-        "wpackagist-plugin/wp-mail-smtp": "3.*",
+        "wpackagist-plugin/wp-mail-smtp": "4.*",
         "greenpeace/planet4-gpch-plugin-blocks": "1.*",
         "greenpeace/planet4-gpch-plugin-tamaro": "1.*",
         "plugins/sitepress-multilingual-cms": "*",
@@ -13,7 +13,8 @@
         "twilio/sdk": "^6.43",
         "giggsey/libphonenumber-for-php": "^8.13",
         "phplicengine/bitly": "^1.0",
-        "wpackagist-plugin/term-management-tools": "*"
+        "wpackagist-plugin/term-management-tools": "*",
+        "wpackagist-plugin/gravity-forms-pdf-extended": "6.*"
     },
     "config": {
         "allow-plugins": {
@@ -24,13 +25,13 @@
     "scripts": {
         "core:language": "wp language core install de_CH;",
         "core:language2": "wp language core install fr_FR;",
-        "install:plugin-acf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/advanced-custom-fields-pro_6.2.2.zip",
-        "install:plugin-gravityformszapier": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformszapier_4.2.1.zip",
-        "install:plugin-gravityformspolls": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformspolls_4.1.zip",
-        "install:plugin-gravityformsimagechoices": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityforms-image-choices_1.4.9.zip",
-        "install:plugin-gravityformsturnstyle": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformsturnstile_1.0.0.zip",
-        "install:plugin-swf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare_4.4.4.zip",
-        "install:plugin-swfpro": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare-pro_4.4.4.zip",
+        "install:plugin-acf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/advanced-custom-fields-pro_6.2.7.zip",
+        "install:plugin-gravityformszapier": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformszapier_4.3.0.zip",
+        "install:plugin-gravityformspolls": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformspolls_4.2.0.zip",
+        "install:plugin-gravityformsimagechoices": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityforms-image-choices_1.4.17.zip",
+        "install:plugin-gravityformsturnstyle": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformsturnstile_1.1.0.zip",
+        "install:plugin-swf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare_4.4.5.1.zip",
+        "install:plugin-swfpro": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare-pro_4.4.5.1.zip",
         "site:custom": [
             "@core:language",
             "@core:language2",
