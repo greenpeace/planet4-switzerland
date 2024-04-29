@@ -4,7 +4,6 @@
     "greenpeace/planet4-plugin-gutenberg-blocks": "dev-main",
     "greenpeace/planet4-child-theme-switzerland" : "dev-feature/663-visual-identity-update",
     "greenpeace/planet4-gpch-plugin-blocks" : "dev-master",
-    "greenpeace/planet4-gpch-plugin-tamaro": "dev-develop",
-    "wpackagist-plugin/wp-mail-smtp": "3.*"
+    "greenpeace/planet4-gpch-plugin-tamaro": "dev-develop"
   }
 }
