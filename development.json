@@ -1,6 +1,6 @@
 {
   "require": {
-    "greenpeace/planet4-master-theme" : "dev-main",
+    "greenpeace/planet4-master-theme" : "dev-PLANET-7366-sendgrid-filter",
     "greenpeace/planet4-plugin-gutenberg-blocks": "dev-main",
     "greenpeace/planet4-child-theme-switzerland" : "dev-feature/663-visual-identity-update",
     "greenpeace/planet4-gpch-plugin-blocks" : "dev-master",
