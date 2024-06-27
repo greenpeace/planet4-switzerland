@@ -3,7 +3,7 @@
     "greenpeace/planet4-master-theme" : "dev-main",
     "greenpeace/planet4-plugin-gutenberg-blocks": "dev-main",
     "greenpeace/planet4-child-theme-switzerland" : "dev-feature/663-visual-identity-update",
-    "greenpeace/planet4-gpch-plugin-blocks" : "dev-master",
+    "greenpeace/planet4-gpch-plugin-blocks": "dev-feature/674-fix-p2p-email-sender",
     "greenpeace/planet4-gpch-plugin-tamaro": "dev-develop"
   }
 }
