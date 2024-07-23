@@ -9,7 +9,7 @@
         "plugins/sitepress-multilingual-cms": "*",
         "plugins/wpml-string-translation": "*",
         "cedaro/gravity-forms-iframe": "2.0.*",
-        "twilio/sdk": "^6.43",
+        "twilio/sdk": "^8.2",
         "giggsey/libphonenumber-for-php": "^8.13",
         "phplicengine/bitly": "^1.0",
         "wpackagist-plugin/term-management-tools": "*",
