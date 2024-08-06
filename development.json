@@ -2,8 +2,8 @@
   "require": {
     "greenpeace/planet4-master-theme" : "dev-main",
     "greenpeace/planet4-plugin-gutenberg-blocks": "dev-main",
-    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/675-migrate-form-event",
-    "greenpeace/planet4-gpch-plugin-blocks": "dev-feature/674-fix-p2p-email-sender",
+    "greenpeace/planet4-child-theme-switzerland" : "dev-master",
+    "greenpeace/planet4-gpch-plugin-blocks": "dev-release/v1.34",
     "greenpeace/planet4-gpch-plugin-tamaro": "dev-develop"
   }
 }
