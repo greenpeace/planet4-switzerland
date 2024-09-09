@@ -198,17 +198,17 @@ job_definitions:
   rollback_db_steps: &rollback_db_steps
     working_directory: /tmp/workspace/src
     steps:
-    - checkout
-    - run:
-        name: Configure
-        command: activate-gcloud-account.sh
-    - run:
-        name: Get keys
-        command: echo $SQLPROXY_KEY | base64 -d > key.json
-    - run:
-        name: Restore database
-        command: restore_db.sh
-        no_output_timeout: 20m
+      - checkout
+      - run:
+          name: Configure
+          command: activate-gcloud-account.sh
+      - run:
+          name: Get keys
+          command: echo $SQLPROXY_KEY | base64 -d > key.json
+      - run:
+          name: Restore database
+          command: restore_db.sh
+          no_output_timeout: 20m
 
 jobs:
   build-develop:
