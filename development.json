@@ -2,7 +2,7 @@
   "require": {
     "greenpeace/planet4-master-theme" : "dev-main",
     "greenpeace/planet4-plugin-gutenberg-blocks": "dev-main",
-    "greenpeace/planet4-child-theme-switzerland" : "dev-master",
+    "greenpeace/planet4-child-theme-switzerland" : "dev-release/v2.0.11",
     "greenpeace/planet4-gpch-plugin-blocks": "dev-master",
     "greenpeace/planet4-gpch-plugin-tamaro": "dev-develop"
   }
