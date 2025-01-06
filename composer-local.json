@@ -12,6 +12,7 @@
         "twilio/sdk": "^8.2",
         "giggsey/libphonenumber-for-php": "^8.13",
         "phplicengine/bitly": "^1.0",
+        "endroid/qr-code": "^6.0",
         "wpackagist-plugin/term-management-tools": "*",
         "wpackagist-plugin/gravity-forms-pdf-extended": "6.*",
         "plugins/wpml-elasticpress": "*"
