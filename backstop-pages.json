@@ -38,6 +38,12 @@
       "url": "https://APP_HOSTNAME/fr/story-fr/81594/cuisiner-saison-regional/",
       "delay": 5000,
       "hideSelectors": ["#_hj_feedback_container", ".wp-block-embed-youtube"]
+    },
+    {
+      "label": "Planet4 GPCH Business Card",
+      "url": "https://APP_HOSTNAME/business-card/4GPQUlpQGapU",
+      "delay": 5000,
+      "hideSelectors": []
     }
   ]
 }
