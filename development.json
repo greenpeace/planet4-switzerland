@@ -3,7 +3,7 @@
     "greenpeace/planet4-master-theme" : "dev-main",
     "greenpeace/planet4-child-theme-switzerland" : "dev-master",
     "greenpeace/planet4-gpch-plugin-blocks": "dev-master",
-    "greenpeace/planet4-gpch-plugin-tamaro": "dev-develop",
+    "greenpeace/planet4-gpch-plugin-tamaro": "dev-feature/P4-142-subscription-form-content",
     "greenpeace/planet4-gpch-plugin-optimize": "dev-main"
   }
 }
