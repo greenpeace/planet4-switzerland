@@ -4,6 +4,6 @@
     "greenpeace/planet4-child-theme-switzerland" : "dev-master",
     "greenpeace/planet4-gpch-plugin-blocks": "dev-master",
     "greenpeace/planet4-gpch-plugin-tamaro": "dev-develop",
-    "greenpeace/planet4-gpch-plugin-optimize": "dev-release/v0.3.0"
+    "greenpeace/planet4-gpch-plugin-optimize": "dev-main"
   }
 }
