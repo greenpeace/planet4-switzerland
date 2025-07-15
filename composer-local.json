@@ -15,7 +15,6 @@
         "phplicengine/bitly": "^1.0",
         "endroid/qr-code": "5.1.*",
         "wpackagist-plugin/term-management-tools": "*",
-        "wpackagist-plugin/gravity-forms-pdf-extended": "6.12.5.1",
         "plugins/wpml-elasticpress": "*"
     },
     "config": {
@@ -32,6 +31,7 @@
         "install:plugin-gravityformspolls": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformspolls_4.3.0.zip",
         "install:plugin-gravityformsimagechoices": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityforms-image-choices_1.5.4.zip",
         "install:plugin-gravityformsturnstyle": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformsturnstile_1.4.0.zip",
+        "install:plugin-gravityformspdf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravity-pdf-6.12.6.zip",
         "install:plugin-swf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare_4.5.6.zip",
         "install:plugin-swfpro": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare-pro_4.5.6.zip",
         "site:custom": [
@@ -42,6 +42,7 @@
             "@install:plugin-gravityformspolls",
             "@install:plugin-gravityformsimagechoices",
             "@install:plugin-gravityformsturnstyle",
+            "@install:plugin-gravityformspdf",
             "@install:plugin-swf",
             "@install:plugin-swfpro"
         ]
