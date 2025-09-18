@@ -1,7 +1,7 @@
 {
   "require": {
     "greenpeace/planet4-master-theme" : "dev-main",
-    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/ES-152-1-click-petition",
+    "greenpeace/planet4-child-theme-switzerland" : "dev-master",
     "greenpeace/planet4-gpch-plugin-blocks": "dev-master",
     "greenpeace/planet4-gpch-plugin-tamaro": "dev-feature/ES-233-tamaro-update",
     "greenpeace/planet4-gpch-plugin-optimize": "dev-main"
