@@ -1,6 +1,6 @@
 {
   "require": {
-    "greenpeace/planet4-master-theme" : "dev-PLANET-7968_gf-conditionally-enqueue-css-files-v2",
+    "greenpeace/planet4-master-theme" : "dev-main",
     "greenpeace/planet4-child-theme-switzerland" : "dev-master",
     "greenpeace/planet4-gpch-plugin-blocks": "dev-master",
     "greenpeace/planet4-gpch-plugin-tamaro": "dev-feature/ES-221-additional-fields",
