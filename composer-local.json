@@ -32,6 +32,7 @@
         "install:plugin-gravityformsimagechoices": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityforms-image-choices_1.6.16.zip",
         "install:plugin-gravityformsturnstyle": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformsturnstile_1.5.0.zip",
         "install:plugin-gravityformspdf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravity-pdf-6.14.1.zip",
+        "install:plugin-gravityformscli": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/gravityformscli_1.7.zip",
         "install:plugin-swf": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare_4.5.6.zip",
         "install:plugin-swfpro": "wp plugin install --activate https://storage.googleapis.com/planet4-3rdparty-plugins/social-warfare-pro_4.5.6.zip",
         "site:custom": [
@@ -43,6 +44,7 @@
             "@install:plugin-gravityformsimagechoices",
             "@install:plugin-gravityformsturnstyle",
             "@install:plugin-gravityformspdf",
+            "@install:plugin-gravityformscli",
             "@install:plugin-swf",
             "@install:plugin-swfpro"
         ]
