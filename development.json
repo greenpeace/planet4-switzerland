@@ -4,6 +4,7 @@
     "greenpeace/planet4-child-theme-switzerland" : "dev-release/v2.0.46",
     "greenpeace/planet4-gpch-plugin-blocks": "dev-master",
     "greenpeace/planet4-gpch-plugin-tamaro": "dev-develop",
-    "greenpeace/planet4-gpch-plugin-optimize": "dev-main"
+    "greenpeace/planet4-gpch-plugin-optimize": "dev-main",
+    "wpackagist-plugin/alt-magic-ai-powered-alt-texts": "1.*"
   }
 }
