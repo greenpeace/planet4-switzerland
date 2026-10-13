@@ -1,7 +1,7 @@
 {
   "require": {
     "greenpeace/planet4-master-theme" : "dev-main",
-    "greenpeace/planet4-child-theme-switzerland" : "dev-develop",
+    "greenpeace/planet4-child-theme-switzerland" : "dev-feature/ES-767b-year-end-campaign",
     "greenpeace/planet4-gpch-plugin-blocks": "dev-master",
     "greenpeace/planet4-gpch-plugin-tamaro": "dev-develop"
   }
